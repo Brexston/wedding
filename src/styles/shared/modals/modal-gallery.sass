@@ -1,0 +1,46 @@
+.modal-gallery
+	&.modal-enter-from, &.modal-leave-to
+		& .modal-window
+			&__body
+				transform: unset
+
+	& .modal
+		&__wrapper
+			gap: 120px
+
+		&__close
+			position: static
+			width: fluid(48, 36)
+			height: fluid(48, 36)
+			color: var(--color-neutral-100)
+
+	& .modal-window
+		&__body
+			padding: 16px
+			overflow-x: hidden
+			background-color: var(--color-neutral-900)
+
+			@include v-scroll
+
+	&__header
+		display: flex
+		align-items: center
+		justify-content: flex-end
+		gap: fluid(12, 10)
+
+	&__modal
+		display: flex
+		flex-direction: column
+		gap: 8px
+		width: 100%
+		height: 100%
+		background-color: var(--color-neutral-900)
+
+	&__content
+		display: flex
+		flex-direction: column
+		height: 100%
+		overflow: hidden
+
+	&__slider
+		height: 100%

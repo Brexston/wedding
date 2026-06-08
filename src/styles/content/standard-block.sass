@@ -1,0 +1,42 @@
+.standard-block
+	display: flex
+	flex-direction: column
+
+	&__banner
+		display: flex
+		flex-direction: column
+		gap: var(--g-m)
+
+	&__banner-img
+		--width: 100%
+		--aspect-ratio: 1880/800
+		--radius: var(--radius-m)
+		--object-fit: cover
+
+	&__banner-text
+		grid-column: span 4
+
+	&__content
+		width: 100%
+		max-width: 900px
+		margin-right: auto
+		margin-left: auto
+
+	&__slider
+		width: 100%
+		max-width: 700px
+		overflow: hidden
+
+		&:not(:last-child)
+			margin-bottom: var(--g-4xl)
+
+	&__slider-img
+		--width: 100%
+		--aspect-ratio: 1208/720
+		--object-fit: cover
+		--radius: var(--radius-l)
+
+	&__slider-text
+		margin-top: 8px
+		color: var(--color-neutral-400)
+		font-size: var(--font-size-text-s)

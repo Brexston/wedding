@@ -1,0 +1,55 @@
+.input-code
+	display: flex
+	align-items: center
+	gap: 12px
+
+	&__field
+		width: fluid(60, 40)
+		min-height: var(--di-min-height)
+		padding: var(--di-py) var(--di-px)
+
+		border-width: var(--di-border-width)
+		border-style: solid
+		border-radius: var(--di-border-radius)
+		border-color: var(--di-border-color)
+		background-color: var(--di-bg)
+
+		color: var(--di-color)
+
+		font-size: var(--di-font-size)
+		line-height: var(--di-line-height)
+
+		text-align: center
+
+		transition: border-color 0.3s ease, background-color 0.3s ease
+
+		&::placeholder
+			color: var(--di-placeholder-color)
+
+		&:focus
+			border-color: var(--di-border-color-active)
+			outline: none
+			background-color: var(--di-bg-focus)
+
+			@include media('max', 'mobile-xl')
+				font-size: 16px
+
+		@include hover
+			border-color: var(--di-border-color-hover)
+			background-color: var(--di-bg-hover)
+
+		&:disabled
+			--di-color: var(--di-color-disabled)
+			--di-border-color: var(--di-border-color-disabled)
+			--di-bg: var(--di-bg-disabled)
+			--di-placeholder-color: var(--di-color-disabled)
+			--di-icon-color: var(--di-color-disabled)
+			opacity: 1
+			cursor: not-allowed
+			pointer-events: none
+
+		&:read-only:not(:disabled)
+			cursor: help
+
+		&.error
+			border-color: var(--di-border-color-error)

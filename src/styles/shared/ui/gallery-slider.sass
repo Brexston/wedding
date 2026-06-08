@@ -1,0 +1,112 @@
+.gallery-slider
+	--gs-gap: 16px
+	--gs-thumb-size: fluid(96, 70)
+	--gs-thumb-icon-opacity: 0
+	--gs-thumb-icon-bg: var(--color-neutral-100)
+	--gs-thumb-icon-color: var(--color-neutral-900)
+	--gs-thumb-icon-size: fluid(20, 16)
+	--gs-pagination-size: 16px
+
+	position: relative
+	isolation: isolate
+	display: flex
+	flex-direction: column
+	gap: var(--gs-gap)
+	user-select: none
+
+	&__slider
+		display: flex
+		flex-direction: column
+		flex-grow: 1
+		gap: var(--gs-gap)
+		width: 100%
+		padding-bottom: calc(var(--gs-pagination-size) * var(--line-height) + var(--gs-gap))
+
+	&__pagination
+		display: flex
+		flex-shrink: 0
+		align-items: center
+		justify-content: center
+		gap: 8px
+		color: var(--color-neutral-100)
+		font-size: var(--gs-pagination-size)
+
+	&__slide
+		height: 100%
+		overflow: hidden
+
+	&__media
+		--object-fit: contain
+		display: flex
+		align-items: center
+		justify-content: center
+
+	&__thumbs
+		flex-shrink: 0
+		width: 100%
+		max-width: 528px
+
+	&__thumb
+		width: var(--gs-thumb-size)
+		cursor: pointer
+
+		&::before
+			content: ''
+			position: absolute
+			inset: 0
+			transition: background-color 0.3s
+
+		&:not(&.swiper-slide-thumb-active)
+			--gs-thumb-icon-opacity: 1
+
+			position: relative
+
+			&::before
+				background-color: rgba(var(--color-neutral-900-trans), 0.4)
+
+		&-img
+			--width: 100%
+			--aspect-ratio: 96 / 64
+			--object-fit: cover
+
+	.swiper
+		&__nav
+			position: absolute
+			top: 0
+			right: 0
+			bottom: 0
+			left: 0
+			z-index: var(--z-index-above)
+
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+			padding-bottom: calc(var(--gs-pagination-size) * var(--line-height) + var(--gs-gap))
+
+			pointer-events: none
+
+			@include media('max', 'tablet')
+				display: none
+
+			&-btn
+				--link-color: var(--color-neutral-100)
+				--link-color-hover: var(--color-neutral-300)
+				pointer-events: all
+
+				&:disabled,
+				&.disabled,
+				&.swiper-button-disabled
+					--link-color: var(--color-neutral-300)
+
+			&-icon
+				width: fluid(64, 40)
+				height: fluid(64, 40)
+				filter: drop-shadow(0 0 10px #00000080)
+
+		&-zoom-container
+			display: flex
+			align-items: center
+			justify-content: center
+			width: 100%
+			height: 100%

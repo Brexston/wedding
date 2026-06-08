@@ -1,0 +1,10 @@
+mixin base-accordion(items = [])
+	each item in items
+		x-accordion&attributes(attributes).accordion
+			template(#default="{onToggle, isOpen}")
+				.accordion__header(@click="onToggle")
+					span!=item.title
+					+icon('plus')(v-show="!isOpen").accordion__header-icon
+					+icon('minus')(v-show="isOpen").accordion__header-icon
+			template(#body)
+				.accordion__body!=item.content

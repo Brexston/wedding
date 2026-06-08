@@ -1,0 +1,70 @@
+.default-input
+	--di-font-size: var(--font-size-text-l)
+	--di-line-height: var(--line-height-l)
+	--di-py: var(--p-l)
+	--di-px: var(--p-l)
+	--di-min-height: 56px
+	--di-color: var(--color-neutral-900)
+	--di-color-disabled: var(--color-neutral-400)
+	--di-color-error: var(--color-neutral-900)
+	--di-placeholder-color: var(--color-neutral-500)
+	--di-bg: var(--color-neutral-100)
+	--di-bg-hover: var(--color-neutral-100)
+	--di-bg-disabled: var(--color-neutral-300)
+	--di-bg-focus: var(--color-neutral-100)
+	--di-border-color: var(--color-neutral-400)
+	--di-border-color-hover: var(--color-primary-500)
+	--di-border-color-active: var(--color-primary-500)
+	--di-border-color-focus: var(--color-primary-500)
+	--di-border-color-disabled: var(--color-neutral-300)
+	--di-border-color-error: var(--color-negative)
+	--di-border-width: 1PX
+	--di-border-radius: var(--radius-s)
+	--di-icon-size: 20px
+	--di-icon-color: currentcolor
+	--di-label-color: var(--color-neutral-500)
+	--di-label-font-size: var(--font-size-text-s)
+	--di-label-line-height: var(--line-height-l)
+	--di-label-font-weight: 400
+
+	display: flex
+	flex-direction: column
+
+	&.required
+		.default-input
+			&__label
+				&::after
+					content: '*'
+					margin-left: 4px
+					color: var(--color-negative)
+
+	&__label
+		padding-bottom: var(--g-xs)
+		color: var(--di-label-color)
+		font-size: var(--di-label-font-size)
+		font-weight: var(--di-label-font-weight)
+		line-height: var(--di-label-line-height)
+
+	&__input
+		position: relative
+		display: flex
+		align-items: center
+		gap: var(--g-xs)
+
+		.input-btn
+			--btn-min-height: var(--di-min-height)
+
+	&__errors
+		margin-top: var(--g-xs)
+
+	&__error
+		color: var(--color-negative)
+		font-size: var(--font-size-text-s)
+		font-weight: 400
+		line-height: var(--line-height-s)
+
+	&__bottom
+		display: flex
+		flex-direction: column
+		gap: var(--g-xs)
+		margin-top: var(--g-xs)

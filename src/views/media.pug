@@ -1,0 +1,13 @@
+extends /base/_head
+block vars
+	- let title = 'Главная'
+	- let layoutClass = 'layout'
+	- let bodyClass = null
+
+block content
+	+header()
+
+	main.page__main
+		media-view(:items="[{id: 1, name: 'test', url: '', date: '12.01.2000'}]" :pagination="{ totalItems: 100, limitItems: 10, pageCurrent: 1, showShowMore: true }")
+
+	include ../templates/shared/footer

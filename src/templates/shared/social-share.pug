@@ -1,0 +1,42 @@
+mixin social-share({ title, url, text= '' })
+
+	.soc-share
+		if title
+			p.soc-share__title.title.title--h6= title
+
+		.soc-share__list
+			a(target="_blank" href=`https://t.me/share/url?url=${url}&text=${text}`).btn.btn--color-secondary.soc-share__item
+				+image(
+					{
+						src: `img/socials/telegram.svg`,
+						width: 24,
+						height: 24,
+					},
+				).btn__icon
+
+			a(target="_blank" href=`https://connect.ok.ru/offer?url=${url}&title=${text}`).btn.btn--color-secondary.soc-share__item
+				+image(
+					{
+						src: `img/socials/ok.svg`,
+						width: 24,
+						height: 24,
+					},
+				).btn__icon
+
+			a(target="_blank" href=`https://vk.com/share.php?url=${url}&text=${text}`).btn.btn--color-secondary.soc-share__item
+				+image(
+					{
+						src: `img/socials/vk.svg`,
+						width: 24,
+						height: 24,
+					},
+				).btn__icon
+
+			button.btn.btn--color-secondary.soc-share__item(@click="copyToClipboard(url, 'Ссылка скопирована')")
+				+image(
+					{
+						src: `img/socials/link.svg`,
+						width: 24,
+						height: 24,
+					},
+				).btn__icon

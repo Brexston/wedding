@@ -1,0 +1,67 @@
+@use 'sass:math'
+
+html
+	background-color: var(--color-neutral-100)
+	color: var(--color-neutral-900)
+	font-family: var(--font-family)
+	font-size: 16px
+	font-weight: var(--font-weight)
+	scroll-behavior: smooth
+
+	@include media('max', 'pc')
+		font-size: calc(16 / 1920) * 100vw
+
+	@include media('max', 'laptop-xxl')
+		font-size: calc(16 / 1440) * 100vw
+
+	@include media('max', 'laptop-xl')
+		font-size: calc(16 / 1280) * 100vw
+
+	@include media('max', 'laptop')
+		font-size: calc(16 / 1024) * 100vw
+
+	@include media('max', 'tablet')
+		font-size: calc(16 / 768) * 100vw
+
+	@include media('max', 'mobile-xl')
+		font-size: calc(16 / 375) * 100vw
+
+	@media screen and (min-width: 2600px)
+		font-size: calc(16 / 1600) * 100vw
+
+html,
+body
+	@include v-scroll
+
+body
+	min-width: var(--page-min-width)
+	min-height: var(--app-height)
+	margin: 0 auto
+	background-color: var(--body-bg)
+	color: var(--body-color)
+	font-size: var(--font-size)
+	line-height: var(--line-height)
+
+	//если шрифты криво рисуются, можно попробовать это
+	//-webkit-font-smoothing: antialiased
+	//-moz-osx-font-smoothing: grayscale
+
+	&.modal-lock
+		padding-right: var(--scrollbar-compensate, 0)
+		overflow: hidden
+
+*::selection
+	background-color: var(--color-primary-300)
+	color: var(--color-neutral-900)
+
+.scroll-lock
+	overflow: hidden
+
+/* Оболочка */
+.layout
+	display: flex
+	flex-direction: column
+	min-height: var(--app-height)
+
+.grecaptcha-badge
+	display: none !important

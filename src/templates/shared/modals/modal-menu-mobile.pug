@@ -1,0 +1,32 @@
+x-modal(id="modal-menu-mobile" animation="fade-in-right")
+	template(#default="{close}")
+		section.mobile-menu
+			.mobile-menu__top
+				button(data-dialog-close aria-label="закрыть" @click="close").mobile-menu__close
+					+icon('close').icon
+
+				.mobile-menu__title.title.title--h2 Меню
+				.mobile-menu__lang-toggle
+					a(href="#").mobile-menu__lang-toggle-link.active Ru
+					a(href="#").mobile-menu__lang-toggle-link En
+
+			.mobile-menu__content
+				nav.mobile-menu__nav
+					each menu, i in ['О комитете', 'Пресс-центр']
+						x-accordion.mobile-menu__nav-item
+							template(#default="{onToggle, isOpen}")
+								button.mobile-menu__nav-el(@click="onToggle")
+									span.mobile-menu__nav-name=menu
+									+icon('chevron-down').mobile-menu__nav-icon
+							template(#body)
+								.mobile-menu__nav-body
+									.mobile-menu__nav-list
+										each link, i in ['О комитете', 'Пресс-центр']
+											button(@click="openModal('modal-submenu-mobile')").mobile-menu__nav-link.link=link
+					.mobile-menu__nav-item
+						a.mobile-menu__nav-el(href="#")
+							span.mobile-menu__nav-name Контакты
+			.mobile-menu__bottom
+				.mobile-menu__contacts
+					a(href="mailto:info@olympic.ru").mobile-menu__contacts-el.link.title.title--h3 info@xpage.ru
+				+socials({title: ''}, ['img/content/socials/inst.svg', 'img/content/socials/vk.svg']).footer__socials

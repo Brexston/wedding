@@ -1,0 +1,13 @@
+footer.footer
+	.wrapper
+		.footer__inner
+			a(href="/").footer__logo.logo
+				+image(
+					{
+						src: 'img/logo.svg',
+						width: '190',
+						height: '48'
+					}
+				).logo__img
+
+			+socials({title: 'соцсети', disclaimer: '*meta запрещена на территории РФ'}, ['img/content/socials/inst.svg', 'img/content/socials/vk.svg']).footer__socials

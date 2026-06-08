@@ -1,0 +1,71 @@
+.tab
+	--tab-bg: var(--color-neutral-300)
+	--tab-bg-hover: var(--color-neutral-400)
+	--tab-bg-active: var(--color-primary-500)
+	--tab-color: var(--color-neutral-900)
+	--tab-color-hover: var(--color-neutral-900)
+	--tab-color-active: var(--color-neutral-100)
+	--tab-gap: var(--g-xs)
+	--tab-px: var(--p-l)
+	--tab-py: var(--p-l)
+	--tab-font-size: var(--font-size-text-l)
+	--tab-line-height: var(--line-height-m)
+	--tab-font-weight: 500
+	--tab-border-size: 1PX
+	--tab-radius: var(--radius-s)
+	--tab-border-color: transparent
+	--tab-border-color-hover: transparent
+	--tab-border-color-active: transparent
+	--tab-min-height: fluid(56, 44)
+
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	gap: var(--tab-gap)
+
+	min-height: var(--tab-min-height)
+
+	padding: var(--tab-py) var(--tab-px)
+
+	border: var(--tab-border-size) solid transparent
+	border-radius: var(--tab-radius)
+
+	background-color: var(--tab-bg)
+
+	color: var(--tab-color)
+
+	font-size: var(--tab-font-size)
+	font-weight: var(--tab-font-weight)
+	line-height: var(--tab-line-height)
+
+	text-align: center
+	text-decoration: none
+	white-space: nowrap
+
+	transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease
+
+	cursor: pointer
+
+	@include hover
+		background-color: var(--tab-bg-hover)
+		color: var(--tab-color-hover)
+
+	&:active,
+	&.active
+		background-color: var(--tab-bg-active)
+		color: var(--tab-color-active)
+
+	&:disabled,
+	&.disabled
+		pointer-events: none
+
+	&--light
+		--tab-bg: transparent
+		--tab-bg-hover: transparent
+		--tab-bg-active: transparent
+		--tab-color: var(--color-neutral-500)
+		--tab-color-hover: var(--color-neutral-600)
+		--tab-color-active: var(--color-neutral-600)
+		--tab-border-color: var(--color-neutral-500)
+		--tab-border-color-hover: var(--color-neutral-600)
+		--tab-border-color-active: var(--color-neutral-600)

@@ -1,0 +1,86 @@
+@import 'swiper/css'
+
+\:root
+	--swiper-theme-color: var(--color-primary-400)
+
+.swiper
+	width: 100%
+
+	.swiper-slide
+		height: auto
+
+.swiper-buttons
+	display: flex
+	gap: 16px
+
+.swiper-button
+	--swiper-button-size: 48px
+	--swiper-button-border-radius: var(--radius-m)
+	--swiper-button-bg: var(--color-neutral-100)
+	--swiper-button-bg-hover: var(--color-neutral-200)
+	--swiper-button-bg-disabled: var(--color-neutral-200)
+	--swiper-button-color: var(--color-primary-500)
+	--swiper-button-color-hover: var(--color-primary-600)
+	--swiper-button-color-disabled: var(--color-neutral-500)
+	--swiper-button-icon: 24px
+
+	display: flex
+	align-items: center
+	justify-content: center
+
+	width: var(--swiper-button-size)
+	height: var(--swiper-button-size)
+
+	border-radius: var(--swiper-button-border-radius)
+	background-color: var(--swiper-button-bg)
+
+	color: var(--swiper-button-color)
+
+	transition: background-color 0.3s ease, color 0.3s ease
+
+	cursor: pointer
+
+	&::after
+		content: ''
+		width: var(--swiper-button-icon)
+		height: var(--swiper-button-icon)
+		background-color: currentcolor
+		mask-size: contain
+
+	@include hover
+		--swiper-button-bg: var(--swiper-button-bg-hover)
+		--swiper-button-color: var(--swiper-button-color-hover)
+
+	&.swiper-button-prev
+		&::after
+			@include icon('chevron-left', 'mask')
+
+	&.swiper-button-next
+		&::after
+			@include icon('chevron-right', 'mask')
+
+.swiper-pagination
+	--swiper-pagination-size: 10px
+	--swiper-pagination-bg: var(--color-neutral-200)
+	--swiper-pagination-bg-active: var(--color-primary-500)
+	--swiper-pagination-gap: 5px
+
+	position: absolute
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: var(--z-index-above)
+	display: flex
+	justify-content: center
+
+.swiper-pagination-bullet
+	flex-shrink: 0
+	width: var(--swiper-pagination-size)
+	height: var(--swiper-pagination-size)
+	margin: var(--swiper-pagination-gap)
+	border-radius: 50%
+	background-color: var(--swiper-pagination-bg)
+	transition: background-color 0.3s ease
+
+	&.swiper-pagination-bullet-active
+		--swiper-pagination-bg: var(--swiper-pagination-bg-active)

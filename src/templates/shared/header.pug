@@ -1,0 +1,12 @@
+mixin header(item)
+	header.header(v-fixed-header)&attributes(attributes)
+		.wrapper
+			.header__inner
+				a(href=`${BASE_URL}`).header__logo.logo
+					+image(
+						{
+							src: 'img/logo.svg',
+							width: '190',
+							height: '48'
+						}
+					).logo__img

@@ -1,0 +1,35 @@
+.page
+	view-transition-name: page
+
+	&__main
+		flex-grow: 1
+
+		&--error
+			display: flex
+			flex-direction: column
+
+	&__section
+		--section-margin: var(--g-4xl)
+
+		&:not(:last-child)
+			margin-bottom: var(--section-margin)
+
+::view-transition-old(page)
+	animation: slide-out 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards
+
+::view-transition-new(page)
+	animation: slide-in 0.5s cubic-bezier(0.86, 0, 0.07, 1) forwards
+
+@keyframes slide-out
+	0%
+		opacity: 1
+
+	100%
+		opacity: 0
+
+@keyframes slide-in
+	0%
+		opacity: 0
+
+	100%
+		opacity: 1

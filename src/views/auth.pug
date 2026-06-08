@@ -1,0 +1,17 @@
+extends /base/_head
+block vars
+	- let title = 'Главная'
+	- let layoutClass = 'layout'
+	- let bodyClass = null
+
+block content
+	+header()
+
+	main.page__main
+		//- +page-header({title: 'Авторизация', breadcrumbs: ['Главная', 'Авторизация'], backward: 'назад'})
+		section.page__section.section.auth-section
+			.wrapper
+				auth-view(initial-step="authByPassword")
+			
+
+	include ../templates/shared/footer

@@ -1,0 +1,56 @@
+.modal-video
+	display: flex
+	flex-direction: column
+	align-items: center
+	width: 100%
+	height: 100%
+	padding: fluid(24, 16)
+
+	@include media('max', 'tablet')
+		padding: 0
+
+	&__inner
+		display: flex
+		flex-direction: column
+		justify-content: center
+		gap: fluid(24, 16)
+		width: 100%
+		height: 100%
+		padding: 0 fluid(160, 0)
+
+		@include media('max', 'tablet')
+			padding: 0
+
+	&__preview
+		--object-fit: contain !important
+		--object-position: center !important
+		--aspect-ratio: 16 / 9 !important
+		width: 100% !important
+
+		@include media('max', 'tablet')
+			--aspect-ratio: 375 / 210 !important
+
+	&__iframe
+		flex-grow: 1
+		width: 100%
+		max-height: fluid(800, 240)
+
+	&__bottom
+		display: flex
+		flex-shrink: 0
+		gap: fluid(20, 12)
+
+		@include media('max', 'tablet')
+			padding: 0 16px 16px
+
+	&__info
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		gap: fluid(12, 8)
+
+	&__title
+		color: var(--color-neutral-100)
+
+	&__caption
+		color: var(--color-neutral-400)

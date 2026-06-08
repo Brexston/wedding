@@ -1,0 +1,132 @@
+\:root
+	// Настройки
+	/* Минимальная ширина страницы */
+	--page-min-width: 375px
+
+	/* Ширина полотна (макета) */
+	--page-max-width: 1920px
+
+	/* Wrapper */
+	--wrapper-padding: 24px
+	--wrapper-max-width: 1880px
+
+	/*  Размеры блоков */
+	--app-height: 100svh
+	--header-height: fluid(48, 72)
+
+	// Цвета
+	// Основной цвет
+	--color-primary-300: #133383
+	--color-primary-400: #123dca
+	--color-primary-500: #1a4bec
+	--color-primary-600: #3d70dd
+	--color-primary-700: #133383
+
+	// Второстепенный цвет
+	--color-neutral-100: #fff
+	--color-neutral-100-trans: 255, 255, 255
+	--color-neutral-200: #f1f2f4
+	--color-neutral-300: #dee1e6
+	--color-neutral-400: #bdc2cb
+	--color-neutral-500: #7c8287
+	--color-neutral-900: #161a1d
+	--color-neutral-900-trans: 136, 136, 136
+
+	// Вспомогательный цвет
+	--color-negative: #e24343
+	--color-positive: #42ad3f
+	--color-warning: #e7a516
+	--color-info: #2e92db
+
+	// Тени
+	--shadow-m: 4px 4px 12px rgba(40, 40, 40, 0.15)
+	--shadow-s: 1px 1px 2px rgba(89, 89, 89, 0.09)
+
+	// Радиусы
+	--radius-l: fluid(20, 16)
+	--radius-m: fluid(16, 10)
+	--radius-s: 10px
+	--radius-xs: 6px
+
+	// Типографика
+	--font-family-primary: 'Helvetica', sans-serif
+	--font-family-secondary: 'Montserrat', sans-serif
+	// =======================
+	--font-size-h1: fluid(64, 48)
+	--font-size-h2: fluid(48, 32)
+	--font-size-h3: fluid(32, 24)
+	--font-size-h4: fluid(24, 20)
+	--font-size-h5: fluid(20, 18)
+	--font-size-h6: fluid(18, 16)
+	// =======================
+	// 16px - default
+	--font-size-text-l: 16px
+	--font-size-text-m: fluid(16, 14)
+	--font-size-text-s: fluid(14, 12)
+
+	// Межстрочный интервал
+	--line-height-l: 1.35
+	--line-height-m: 1.2
+	--line-height-s: 1.1
+
+	// Межбуквенный интервал
+	--letter-spacing-m: -0.03em
+	--letter-spacing-s: -0.02em
+
+	// =======================
+	--font-family: var(--font-family-primary)
+	--font-size: var(--font-size-text-m)
+	--letter-spacing: var(--letter-spacing-m)
+	--line-height: var(--line-height-l)
+	--font-weight: 400
+	--body-bg: var(--color-neutral-200)
+	--body-color: var(--color-neutral-900)
+	--default-border: var(--color-neutral-300)
+	--default-shadow: 0 4px 20px 0 rgba(9, 37, 64, 0.1)
+
+	// Gap
+	--g-3xs: 2px
+	--g-2xs: 4px
+	--g-xs: fluid(8, 6)
+	--g-s: fluid(12, 10)
+	--g-m: fluid(16, 12)
+	--g-l: fluid(20, 16)
+	--g-xl: fluid(24, 18)
+	--g-2xl: fluid(32, 24)
+	--g-3xl: fluid(48, 36)
+	--g-4xl: fluid(80, 60)
+
+	// Padding
+	--p-xs: 4px
+	--p-s: 8px
+	--p-m: 12px
+	--p-l: fluid(16, 12)
+	--p-xl: fluid(20, 16)
+	--p-2xl: fluid(24, 20)
+	--p-3xl: fluid(32, 24)
+	--p-4xl: fluid(48, 32)
+
+	// Outline
+	--outline-color: var(--color-warning)
+	--outline-width: 2px
+	--outline-offset: 0
+
+	// Scrollbar
+	--scrollbar-color-background: var(--body-bg)
+	--scrollbar-color-thumb: var(--color-primary-500)
+
+	// Overlay
+	--overlay-color: rgba(0, 0, 0, 0.4)
+
+	// Индексы
+	--z-index-base: 0
+	--z-index-above: 1
+	--z-index-above-secondary: 2
+	--z-index-below: -1
+	--z-index-below-secondary: -2
+	--z-index-dropdown: calc(var(--z-index-above) * 3)
+	--z-index-header: calc(var(--z-index-dropdown) * 3)
+	--z-index-modal: calc(var(--z-index-header) * 3)
+
+	@include media('max', 'laptop')
+		--wrapper-padding: 12px

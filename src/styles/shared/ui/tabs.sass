@@ -1,0 +1,21 @@
+.tabs
+	--tabs-gap: var(--g-xs)
+	display: flex
+	align-items: center
+	gap: var(--tabs-gap)
+
+	width: max-content
+	max-width: 100%
+	margin-top: calc(var(--outline-width) * -1)
+	margin-bottom: calc(var(--outline-width) * -1)
+	padding-top: var(--outline-width)
+	padding-bottom: var(--outline-width)
+
+	overflow-x: auto
+
+	@include h-scroll
+
+	&--light
+		gap: 0
+		border-radius: var(--radius-xl)
+		background-color: var(--color-neutral-100)

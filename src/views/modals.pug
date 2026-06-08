@@ -1,0 +1,111 @@
+extends /base/_head
+
+block vars
+	- let title = 'Модальные окна'
+	- let layoutClass = null
+	- let bodyClass = null
+
+block content
+	main.page__main
+		section.project-view
+			.wrapper
+				.pv-title
+					h1.pv-title__text Модальные окна
+
+				.pv-blocks.pv-blocks--columns
+					.pv-block
+						h3.pv-block__title Общие
+						.pv-block__preview
+							button.btn(@click="openModal('modal-callback')") Заказать звонок
+							button.btn(@click="openModal('modal-menu-mobile')") Мобильное меню
+block head
+	style.
+		.project-view {
+			--view-bg: var(--body-bg);
+			--view-color: var(--body-color);
+			--view-block-bg: var(--color-neutral-100);
+			--view-border: var(--default-border);
+			--view-link: var(--body-color);
+			--view-link-hover: var(--color-primary-500);
+			--view-title-color: var(--body-color);
+			--view-check: var(--color-primary-300);
+			position: relative;
+			z-index: 0;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			min-height: 100vh;
+			padding: fluid(60, 40) 0;
+			background-color: var(--view-bg);
+			color: var(--view-color);
+		}
+
+		.wrapper {
+			display: flex;
+			flex: 1 1 100%;
+			flex-direction: column;
+		}
+
+		.pv-title {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 20px;
+			margin-bottom: fluid(60, 24);
+		}
+
+		.pv-title__text {
+			margin: 0;
+			color: var(--view-color);
+			font-size: fluid(32, 18);
+			font-weight: 600;
+		}
+
+		.pv-logo {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.pv-logo__image.img {
+			--width: fluid(270, 180);
+			--aspect-ratio: 270/70;
+			--object-fit: contain;
+		}
+
+		.pv-blocks {
+			width: 100%;
+		}
+
+		.pv-blocks--columns {
+			column-count: auto;
+			column-width: clamp(16rem, 45vw, 32rem);
+			column-gap: 8px;
+		}
+
+		.pv-blocks--columns .pv-block {
+			margin-bottom: 8px;
+			break-inside: avoid;
+		}
+
+		.pv-block {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			padding: fluid(24, 20);
+			background-color: var(--view-block-bg);
+		}
+
+		.pv-block__title {
+			margin: 0 0 fluid(24, 40);
+			color: var(--view-title-color);
+			font-size: fluid(32, 18);
+			font-weight: 600;
+		}
+
+		.pv-block__preview {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px;
+			width: 100%;
+		}

@@ -1,0 +1,55 @@
+mixin tooltip({ id = 'tooltip', position = 'bottom' } = {})
+	- var slots = {};
+	mixin slot(name)
+		- slots[name] = block
+	- block ? block() : undefined
+
+	button.tooltip(popovertarget=id interestfor=id)&attributes(attributes)
+		//- Триггер для тултипа
+		if slots['trigger']
+			.tooltip__trigger
+				- slots['trigger']();
+		//- Если не передать слот trigger, то будет иконка с вопросом 
+		else
+			.tooltip__trigger
+				+icon('info').icon
+
+		//- Содержимое тултипа с позиционированием
+		if slots['content']
+			case position 
+				when 'top'
+					.tooltip__content.tooltip__content--top(id=id popover)
+						- slots['content']();
+
+				when 'top-right'
+					.tooltip__content.tooltip__content--top-right(id=id popover)
+						- slots['content']();
+
+				when 'top-left'
+					.tooltip__content.tooltip__content--top-left(id=id popover)
+						- slots['content']();
+
+				when 'bottom'
+					.tooltip__content.tooltip__content(id=id popover)
+						- slots['content']();
+
+				when 'bottom-right'
+					.tooltip__content.tooltip__content--bottom-right(id=id popover)
+						- slots['content']();
+
+				when 'bottom-left'
+					.tooltip__content.tooltip__content--bottom-left(id=id popover)
+						- slots['content']();
+
+				when 'right'
+					.tooltip__content.tooltip__content--right(id=id popover)
+						- slots['content']();
+
+				when 'left'
+					.tooltip__content.tooltip__content--left(id=id popover)
+						- slots['content']();
+
+				//- По умолчанию снизу от триггера
+				default
+					.tooltip__content(id=id popover)
+						- slots['content']();

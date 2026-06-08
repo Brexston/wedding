@@ -1,0 +1,13 @@
+extends /base/_head
+block vars
+	- let title = 'Главная'
+	- let layoutClass = 'layout'
+	- let bodyClass = null
+
+block content
+	+header()
+
+	main.page__main
+		cart-view(show-items)
+
+	include ../templates/shared/footer

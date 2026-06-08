@@ -1,0 +1,116 @@
+.mobile-menu
+	display: flex
+	flex-direction: column
+	flex-grow: 1
+	width: 100%
+	background-color: var(--color-neutral-100)
+
+	&__top
+		position: sticky
+		top: 0
+		z-index: var(--z-index-above)
+
+		display: grid
+		grid-template-columns: minmax(0, 1fr) auto
+		align-content: flex-start
+		align-items: flex-end
+		gap: var(--g-2xl) var(--g-m)
+
+		padding: var(--p-2xl) var(--wrapper-padding)
+
+		border-bottom: 1px solid var(--default-border)
+		background-color: var(--color-white)
+
+	&__close
+		grid-column: -1/1
+
+	&__lang-toggle
+		display: flex
+		gap: var(--g-xs)
+
+		&-link
+			opacity: 0.5
+			text-transform: uppercase
+			transition: opacity 0.3s ease
+
+			@include hover
+				opacity: 0.7
+
+			&.active
+				opacity: 1
+
+	&__content
+		flex-grow: 1
+		padding: var(--p-2xl) var(--wrapper-padding)
+
+	&__bottom
+		display: flex
+		flex-direction: column
+		gap: var(--g-3xl)
+		padding: var(--p-2xl) var(--wrapper-padding)
+		border-top: 1px solid var(--default-border)
+
+	&__contacts,
+	&__links
+		display: flex
+		flex-direction: column
+		gap: var(--g-s)
+
+	&__socials
+		.img__image
+			transform: scale(1.2)
+
+	&__link
+		--link-icon-size: 24px
+
+	&__nav
+		display: flex
+		flex-direction: column
+		gap: var(--g-l)
+
+		&-item
+			&.active
+				.mobile-menu__nav
+					&-el
+						background-color: var(--color-neutral-100)
+						color: var(--color-primary-500)
+
+					&-icon
+						transform: rotate(180deg)
+
+		&-el
+			display: flex
+			align-items: center
+			gap: var(--g-s)
+
+			width: 100%
+			min-height: 44px
+			padding: var(--p-s) var(--p-l)
+
+			border-radius: var(--radius-s)
+
+			text-align: left
+
+			transition: background-color 0.3s ease, color 0.3s ease
+
+		&-name
+			flex-grow: 1
+			font-weight: 500
+
+		&-icon
+			flex-shrink: 0
+			width: 24px
+			height: 24px
+			transition: transform 0.3s ease
+			object-fit: contain
+
+		&-body
+			padding: var(--g-l)
+			padding-left: var(--g-m)
+
+		&-list
+			display: flex
+			flex-direction: column
+			gap: var(--g-2xl)
+			padding: var(--p-xs) var(--p-xl)
+			border-left: 1px solid var(--default-border)

@@ -1,0 +1,25 @@
+address.contacts-list(itemscope itemtype="http://schema.org/LocalBusiness")
+	.contacts-item
+		span.contacts-item__label Наш адрес
+		.contacts-item__content
+			span(itemprop="address" itemscope itemtype="http://schema.org/PostalAddress")
+				meta(itemprop="addressCountry" content="Россия")
+				meta(itemprop="addressLocality" content="Челябинск")
+				meta(itemprop="streetAddress" content="г.Челябинск, ул. Лесопарковая улица, 8 этаж 6 офис 627")
+				| г.Челябинск, ул. Лесопарковая улица, 8 этаж 6 офис 627
+	.contacts-item
+		span.contacts-item__label Режим работы
+		.contacts-item__content
+			time(itemprop="openingHours" datetime="Mo-Fr, 9:30−18:00") Пн-пт: с 09:30 до 18:00
+			time(itemprop="openingHours" datetime="Sa, 9:30−14:00") Суббота: с 09:30 до 14:00
+			time(itemprop="openingHours" datetime="Su, day off") Воскресенье: выходной
+	.contacts-item
+		span.contacts-item__label Телефон
+		.contacts-item__content
+			a.link(href="tel:+73517299300" itemprop="telephone") 8 351 729-93-00
+			a.link(href="tel:+79058383961" itemprop="telephone") 8 905 838-39-61
+	.contacts-item
+		span.contacts-item__label Электронная почта
+		.contacts-item__content
+			a.link(href="mailto:info@ua74.ru" itemprop="email") info@ua74.ru
+			a.link(href="mailto:uralauto74@gmail.com" itemprop="email") uralauto74@gmail.com

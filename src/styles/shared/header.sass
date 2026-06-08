@@ -1,0 +1,24 @@
+.header
+	position: sticky
+	top: 0
+	z-index: var(--z-index-header)
+	//margin-bottom: fluid(40, 24)
+	padding: fluid(20, 16) 0
+	border-bottom: 1px solid var(--default-border)
+	background-color: var(--color-neutral-100)
+	transition: transform 0.3s linear
+
+	&.sticky-hidden
+		transform: translateY(-101%)
+
+	&.sticky-active
+		transform: translateY(0)
+
+	&__inner
+		display: flex
+		gap: 16px
+
+	&__logo
+		--logo-width: fluid(120, 80)
+
+		flex-shrink: 0

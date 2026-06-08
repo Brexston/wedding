@@ -1,0 +1,192 @@
+.btn
+	--btn-px: var(--p-m)
+	--btn-py: var(--p-m)
+	--btn-gap: var(--g-xs)
+	--btn-min-height: 44px
+	// -----------------
+	--btn-font-family: var(--font-family-primary)
+	--btn-font-size: var(--font-size-text-m)
+	--btn-line-height: var(--line-height-m)
+	--btn-letter-spacing: normal
+	--btn-font-weight: 500
+	--btn-text-transform: none
+	// -----------------
+	--btn-color: var(--color-neutral-100)
+	--btn-color-hover: var(--color-neutral-100)
+	--btn-color-focus: var(--color-neutral-100)
+	--btn-color-active: var(--color-neutral-100)
+	--btn-color-disabled: var(--color-neutral-400)
+	// -----------------
+	--btn-bg: var(--color-primary-500)
+	--btn-bg-hover: var(--color-primary-400)
+	--btn-bg-focus: var(--color-primary-400)
+	--btn-bg-active: var(--color-primary-400)
+	--btn-bg-disabled: var(--color-neutral-300)
+	// -----------------
+	--btn-border-size: 1PX
+	--btn-border-color: transparent
+	--btn-border-color-hover: transparent
+	--btn-border-color-focus: transparent
+	--btn-border-color-active: transparent
+	--btn-border-color-disabled: transparent
+	// -----------------
+	--btn-radius: var(--radius-s)
+	// -----------------
+	--btn-loader-color: currentcolor
+	--btn-loader-ring-color: transparent
+	--btn-icon-size: 20px
+
+	position: relative
+
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	gap: var(--btn-gap)
+
+	min-height: var(--btn-min-height)
+	padding: var(--btn-py) var(--btn-px)
+
+	border: var(--btn-border-size) solid var(--btn-border-color)
+	border-radius: var(--btn-radius)
+
+	background-color: var(--btn-bg)
+
+	color: var(--btn-color)
+
+	font-family: var(--btn-font-family)
+	font-size: var(--btn-font-size)
+	font-weight: var(--btn-font-weight)
+	letter-spacing: var(--btn-letter-spacing)
+	line-height: var(--btn-line-height)
+
+	text-align: center
+	text-decoration: none
+	text-transform: var(--btn-text-transform)
+
+	transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease
+
+	cursor: pointer
+
+	&:focus-visible
+		border-color: var(--btn-border-color-focus)
+		background-color: var(--btn-bg-focus)
+		color: var(--btn-color-focus)
+
+	@include hover
+		border-color: var(--btn-border-color-hover)
+		background-color: var(--btn-bg-hover)
+		color: var(--btn-color-hover)
+
+	&:active,
+	&.active
+		border-color: var(--btn-border-color-active)
+		background-color: var(--btn-bg-active)
+		color: var(--btn-color-active)
+
+	&:disabled,
+	&.disabled,
+	&.swiper-button-disabled
+		border-color: var(--btn-border-color-disabled)
+		background-color: var(--btn-bg-disabled)
+		color: var(--btn-color-disabled)
+		cursor: not-allowed
+		pointer-events: none
+
+		&:focus-visible
+			outline: none
+
+	&[loading='true']
+		pointer-events: none
+
+		&::before
+			content: ''
+			position: absolute
+			top: calc(50% - var(--btn-icon-size) / 2)
+			left: calc(50% - var(--btn-icon-size) / 2)
+
+			display: block
+			flex: none
+
+			width: var(--btn-icon-size)
+			height: var(--btn-icon-size)
+
+			border-width: 2px
+			border-style: solid
+
+			border-radius: 50%
+			border-color: var(--btn-loader-color) var(--btn-loader-color) var(--btn-loader-ring-color)
+
+			transition: border-color 0.3s ease
+			animation: spin360 0.7s linear infinite
+
+		& > *
+			visibility: hidden
+
+	&__text
+		display: block
+		flex: none
+
+	&__icon
+		display: block
+		flex: none
+		width: var(--btn-icon-size)
+		height: var(--btn-icon-size)
+		color: currentcolor
+
+	&--color
+		&-primary
+			--btn-color: var(--color-neutral-900)
+			--btn-color-hover: var(--color-neutral-900)
+			--btn-color-focus: var(--color-neutral-900)
+			--btn-color-active: var(--color-neutral-900)
+			--btn-color-disabled: var(--color-neutral-400)
+			// -----------------
+			--btn-bg: transparent
+			--btn-bg-hover: transparent
+			--btn-bg-focus: transparent
+			--btn-bg-active: transparent
+			--btn-bg-disabled: var(--color-neutral-300)
+			// -----------------
+			--btn-border-color: var(--color-neutral-900)
+			--btn-border-color-hover: var(--color-neutral-900)
+			--btn-border-color-focus: var(--color-neutral-900)
+			--btn-border-color-active: var(--color-neutral-900)
+			--btn-border-color-disabled: var(--color-neutral-300)
+
+		&-secondary
+			--btn-color: var(--color-neutral-100)
+			--btn-color-hover: var(--color-neutral-100)
+			--btn-color-focus: var(--color-neutral-100)
+			--btn-color-active: var(--color-neutral-100)
+			--btn-color-disabled: var(--color-neutral-400)
+			// -----------------
+			--btn-bg: transparent
+			--btn-bg-hover: transparent
+			--btn-bg-focus: transparent
+			--btn-bg-active: transparent
+			--btn-bg-disabled: var(--color-neutral-500)
+			// -----------------
+			--btn-border-color: var(--color-neutral-100)
+			--btn-border-color-hover: var(--color-neutral-100)
+			--btn-border-color-focus: var(--color-neutral-100)
+			--btn-border-color-active: var(--color-neutral-100)
+			--btn-border-color-disabled: var(--color-neutral-500)
+
+	&--size
+		&-s
+			--btn-px: var(--p-s)
+			--btn-py: var(--p-s)
+			--btn-gap: var(--g-2xs)
+			--btn-min-height: 32px
+			// -----------------
+			--btn-font-size: var(--font-size-text-s)
+			--btn-line-height: var(--line-height-s)
+			--btn-icon-size: 16px
+
+		&-l
+			--btn-font-size: var(--font-size-text-l)
+			--btn-px: var(--p-l)
+			--btn-py: var(--p-l)
+			--btn-gap: var(--g-xs)
+			--btn-min-height: fluid(56, 44)
+			--btn-icon-size: fluid(24, 20)

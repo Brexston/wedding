@@ -1,0 +1,52 @@
+@import 'vue3-toastify/dist/index.css'
+
+.Toastify
+	--toastify-toast-width: 360px
+	--toastify-padding: var(--p-m)
+	--toastify-font-family: var(--font-family-primary)
+	--toastify-font-size: 16px
+	--toastify-gap: var(--g-s)
+	--toastify-border-radius: var(--radius-s)
+	--toastify-icon-size: 24px
+	--toastify-icon-close-size: 18px
+	--toastify-color-light: var(--color-neutral-100)
+	--toastify-text-color-light: var(--color-neutral-900)
+
+	@include media('max', 'mobile-xl')
+		--toastify-toast-width: 100%
+		--toastify-border-radius: 0
+
+	&__toast
+		padding: var(--toastify-padding)
+		border-radius: var(--toastify-border-radius)
+		font-size: var(--toastify-font-size)
+
+	&__toast-container
+		padding: 0
+
+	&__toast-body
+		margin: 0
+		padding: 0
+
+	&__toast-icon
+		width: var(--toastify-icon-size)
+		height: var(--toastify-icon-size)
+		margin-right: var(--toastify-gap)
+
+	&__close-button
+		flex-shrink: 0
+		align-self: center
+
+		width: var(--toastify-icon-close-size)
+		height: var(--toastify-icon-close-size)
+		margin-left: var(--toastify-gap)
+
+		background-color: var(--color-neutral-900)
+		mask-position: center
+		mask-repeat: no-repeat
+		opacity: 1
+
+		@include icon('close')
+
+		svg
+			display: none

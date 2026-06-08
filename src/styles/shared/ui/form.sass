@@ -1,0 +1,52 @@
+.form
+	&__title
+		margin-bottom: var(--g-2xl)
+		font-size: var(--font-size-h5)
+		font-weight: 600
+		line-height: var(--line-height-l)
+
+	&__items
+		display: grid
+		gap: var(--g-xl)
+
+		& + .form__items
+			margin-top: var(--g-xl)
+
+		&--column-2
+			grid-template-columns: repeat(2, minmax(0, 1fr))
+
+			@include media('max', 'tablet')
+				grid-template-columns: repeat(1, minmax(0, 1fr))
+
+		&--column-3
+			grid-template-columns: repeat(3, minmax(0, 1fr))
+
+			@include media('max', 'tablet')
+				grid-template-columns: repeat(1, minmax(0, 1fr))
+
+		&--column-4
+			grid-template-columns: repeat(4, minmax(0, 1fr))
+
+		&--column-5
+			grid-template-columns: repeat(5, minmax(0, 1fr))
+
+	&__item
+		&--span-2
+			grid-column: span 2
+
+		&--span-3
+			grid-column: span 3
+
+		&--span-4
+			grid-column: span 4
+
+		&--full
+			grid-column: 1 / -1
+
+	&__bottom
+		margin-top: var(--g-2xl)
+
+	&__actions
+		display: flex
+		flex-wrap: wrap
+		gap: var(--g-m)

@@ -1,0 +1,20 @@
+extends /base/_head
+block vars
+	- let title = 'Главная'
+	- let layoutClass = 'layout'
+	- let bodyClass = null
+
+block content
+	+header()
+
+	main.page__main
+		+page-header({title: 'Контакты', breadcrumbs: ['Главная', 'Контакты'], backward: 'назад'})
+		section.page__section.section.contacts-section
+			.contacts
+				.wrapper
+					include ../templates/contacts/contacts-list
+					include ../templates/contacts/contacts-map
+					include ../templates/contacts/contacts-form
+
+
+	include ../templates/shared/footer

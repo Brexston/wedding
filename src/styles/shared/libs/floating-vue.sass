@@ -1,0 +1,100 @@
+@import 'floating-vue/dist/style.css'
+
+.v-popper
+	&__popper
+		--pd-px: fluid(20, 10)
+		--pd-py: fluid(20, 10)
+		--pd-display: block
+		--pd-color: var(--color-neutral-900)
+		--pd-border-width: 1px
+		--pd-border-style: solid
+		--pd-border-color: var(--color-neutral-200)
+		--pd-border-radius: var(--radius-m)
+		--pd-background: var(--color-neutral-100)
+		--pd-shadow: var(--shadow-xs)
+		--pd-overflow: auto
+		// Wrapper
+		--pd-wrapper-px: 10px
+		--pd-wrapper-py: 10px
+		--pd-wrapper-width: 100%
+		--pd-wrapper-width-max: 400px
+		// Backdrop
+		--pd-backdrop-display: none
+		--pd-backdrop-bg: transparent
+		// Arrow
+		--pd-arrow-display: block
+		--pd-arrow-inner-border: var(--color-neutral-100)
+		--pd-arrow-outer-border: var(--color-neutral-200)
+		// Close button
+		--pd-close-size: 20px
+
+		z-index: var(--z-index-dropdown)
+		display: var(--pd-display)
+
+		&--no-positioning
+			--pd-wrapper-width-max: 100%
+			--pd-wrapper-px: fluid(20, 10)
+			--pd-wrapper-py: fluid(20, 10)
+			--pd-backdrop-display: block
+			--pd-backdrop-bg: rgba(0, 0, 0, 0.5)
+
+			position: fixed
+			top: 0
+			left: 0
+			z-index: 10
+
+			display: flex
+			align-items: flex-end
+
+			width: 100%
+			height: 100%
+
+	&__wrapper
+		width: var(--pd-wrapper-width)
+		max-width: var(--pd-wrapper-width-max)
+
+	&__backdrop
+		display: var(--pd-backdrop-display)
+		background-color: var(--pd-backdrop-bg)
+
+	&__inner
+		padding: var(--pd-px) var(--pd-py)
+		overflow-y: var(--pd-overflow)
+		border: var(--pd-border-width) var(--pd-border-style) var(--pd-border-color)
+		border-radius: var(--pd-border-radius)
+		background: var(--pd-background)
+		box-shadow: var(--pd-shadow)
+		color: var(--pd-color)
+
+	&__arrow
+		&-container
+			display: var(--pd-arrow-display)
+
+		&-inner
+			visibility: visible
+			border-color: var(--pd-arrow-inner-border)
+
+		&-outer
+			border-color: var(--pd-arrow-outer-border)
+
+	&__close
+		position: absolute
+		top: -10px
+		right: -10px
+		width: var(--pd-close-size)
+		height: var(--pd-close-size)
+		cursor: pointer
+
+	&--theme
+		&-null
+			--pd-px: 0
+			--pd-py: 0
+			--pd-border-color: transparent
+			--pd-background: transparent
+			--pd-shadow: none
+			--pd-arrow-display: none
+			--pd-overflow: visible
+			--pd-border-width: 0
+
+		&-without-arrow
+			--pd-arrow-display: none

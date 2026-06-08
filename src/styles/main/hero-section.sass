@@ -1,0 +1,75 @@
+.hero-section
+	position: relative
+
+	&__slide
+		position: relative
+		display: flex
+		flex-direction: column
+		min-height: calc(var(--app-height) - var(--header-height))
+		background-color: var(--color-primary-300)
+
+	&__bg
+		position: absolute
+		inset: 0
+
+		&-image
+			--width: 100%
+			--object-fit: cover
+
+			height: 100%
+
+	&__wrapper
+		position: relative
+
+		display: flex
+		flex-direction: column
+
+		flex-grow: 1
+		align-items: flex-start
+		gap: fluid(20, 40)
+
+		padding-top: fluid(40, 60)
+		padding-bottom: calc(fluid(40, 60) * 3)
+
+	&__bottom
+		position: absolute
+		right: 0
+		bottom: fluid(40, 60)
+		left: 0
+		z-index: var(--z-index-above)
+
+		display: flex
+		align-items: flex-end
+		gap: 40px
+
+	&__actions
+		display: flex
+		flex-shrink: 0
+		align-items: center
+		gap: fluid(20, 40)
+
+		.swiper-buttons
+			@include media('max', 'tablet')
+				display: none
+
+		.swiper-pagination
+			position: relative
+
+	&__thumbs
+		flex-grow: 1
+
+		@include media('max', 'tablet')
+			display: none
+
+		.swiper-slide
+			width: fluid(80, 100)
+			border: 1px solid var(--default-border)
+			cursor: pointer
+
+			&.swiper-slide-thumb-active
+				border-color: var(--color-primary-500)
+
+	&__thumb
+		--width: 100%
+		--aspect-ratio: 1/0.8
+		--object-fit: cover

@@ -1,0 +1,23 @@
+.accordion
+	border: 1px solid var(--color-neutral-300)
+	border-radius: var(--radius-m)
+	transition: background-color 0.3s
+
+	&.active
+		background-color: var(--color-neutral-300)
+
+	&__header
+		display: flex
+		align-items: center
+		gap: 40px
+		padding: 20px
+		cursor: pointer
+
+		&-icon
+			flex-shrink: 0
+			width: 24px
+			height: 24px
+			margin-left: auto
+
+	&__body
+		padding: 20px

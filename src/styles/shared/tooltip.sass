@@ -1,0 +1,52 @@
+.tooltip
+	position: relative
+
+	&__trigger
+		position: relative
+
+	&__content
+		position: absolute
+		inset: unset
+
+		right: 0
+		width: fit-content
+		min-width: 150px
+		margin: 0
+
+	&:has(.tooltip__content--top)
+		[popover]
+			position-area: top center
+
+	&:has(.tooltip__content--top-right)
+		[popover]
+			position-area: top right
+
+	&:has(.tooltip__content--top-left)
+		[popover]
+			position-area: top left
+
+	&:has(.tooltip__content--bottom)
+		[popover]
+			position-area: top center
+
+	&:has(.tooltip__content--bottom-right)
+		[popover]
+			position-area: bottom right
+
+	&:has(.tooltip__content--bottom-left)
+		[popover]
+			position-area: bottom left
+
+	&:has(.tooltip__content--right)
+		[popover]
+			position-area: right center
+
+	&:has(.tooltip__content--left)
+		[popover]
+			position-area: left center
+
+	[popover]
+		border: 0
+		background: transparent
+		position-area: bottom center
+		position-try-fallbacks: flip-block, flip-inline

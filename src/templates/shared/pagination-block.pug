@@ -1,0 +1,7 @@
+mixin pagination-block
+	.pagination-block&attributes(attributes)
+		button.btn.pagination-block__btn
+			span.btn__text Показать еще
+
+		.pagination-block__pagination
+			x-pagination(:totalItems="100" :limitItems="10" :max-buttons="3")

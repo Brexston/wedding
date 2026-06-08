@@ -1,0 +1,106 @@
+.link
+	--link-gap: var(--g-xs)
+	// Typography
+	--link-font-family: var(--font-family-primary)
+	--link-font-size: var(--font-size-text-l)
+	--link-line-height: var(--line-height-s)
+	--link-font-weight: 400
+	--link-text-transform: none
+	// Color
+	--link-color: var(--color-neutral-900)
+	--link-color-hover: var(--color-primary-500)
+	--link-color-focus: var(--color-primary-600)
+	--link-color-active: var(--color-neutral-800)
+	--link-color-disabled: var(--color-neutral-300)
+	// Icon
+	--link-icon-size: 20px
+	// Loader
+	--link-loader-color: currentcolor
+	--link-loader-ring-color: transparent
+	// -----------------
+	position: relative
+
+	display: inline-flex
+	align-items: center
+	gap: var(--link-gap)
+
+	min-height: calc(var(--link-font-size) * var(--link-line-height))
+	padding: 0
+
+	border: 0
+
+	background-color: transparent
+
+	color: var(--link-color)
+
+	font-family: var(--link-font-family)
+	font-size: var(--link-font-size)
+	font-weight: var(--link-font-weight)
+	line-height: var(--link-line-height)
+
+	text-decoration: none
+	text-transform: var(--link-text-transform)
+
+	transition: color 0.3s ease
+
+	cursor: pointer
+
+	@include hover
+		color: var(--link-color-hover)
+
+	&:active
+		color: var(--link-color-active)
+
+	&:disabled,
+	&.disabled,
+	&.swiper-button-disabled
+		color: var(--link-color-disabled)
+		cursor: not-allowed
+		pointer-events: none
+
+		&:focus-visible
+			text-decoration: none
+
+	&[loading='true']
+		pointer-events: none
+
+		&::before
+			content: ''
+			position: absolute
+			top: calc(50% - var(--link-icon-size) / 2)
+			left: calc(50% - var(--link-icon-size) / 2)
+
+			display: block
+			flex: none
+
+			width: var(--link-icon-size)
+			height: var(--link-icon-size)
+
+			border-width: 2px
+			border-style: solid
+
+			border-radius: 50%
+			border-color: var(--link-loader-color) var(--link-loader-color) var(--link-loader-ring-color)
+
+			transition: border-color 0.3s ease
+			animation: spin360 0.7s linear infinite
+
+		& > *
+			visibility: hidden
+
+	&__icon
+		display: block
+		flex: none
+		width: var(--link-icon-size)
+		height: var(--link-icon-size)
+		color: currentcolor
+		object-fit: contain
+
+	&--size
+		&-s
+			--link-font-size: var(--font-size-text-s)
+			--link-font-weight: 500
+
+	&--color
+		&-primary
+			--link-color: var(--color-primary-500)

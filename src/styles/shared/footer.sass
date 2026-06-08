@@ -1,0 +1,16 @@
+.footer
+	margin-top: fluid(80, 40)
+	padding: fluid(40, 20) 0
+	background-color: var(--color-neutral-100)
+
+	&__inner
+		display: flex
+		justify-content: space-between
+		gap: 16px
+
+		@include media('max', 'mobile-xl')
+			flex-direction: column
+
+	&__logo
+		--logo-width: fluid(240, 120)
+		flex-shrink: 0
