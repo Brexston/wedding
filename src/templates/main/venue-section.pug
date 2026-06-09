@@ -1,23 +1,19 @@
 section.page__section.section.venue-section
 	.venue-section__inner.wrapper
-		h2.venue-section__title Место встречи
+		h2.venue-section__title(v-animate="{animationClass: 'fadeInUp'}") Место встречи
 
-		p.venue-section__lead
+		p.venue-section__lead(v-animate="{animationClass: 'fadeInUp'}")
 			| Площадка расположена в самом центре Челябинска — в сквере #[br] им. Андреевского, среди зелени и тишины.
 
-		.venue-section__card
+		.venue-section__card(v-animate="{animationClass: 'fadeInUp'}")
 			p.venue-section__venue More amore event hall
 			address.venue-section__address
 				p Сквер им. Андреевского
 				p Улица Энгельса, 107
 				p Челябинск
 
-		.venue-section__map
-			contacts-map.venue-section__map-widget(
-				:points="[{ lat: 55.1477054, lon: 61.381156, address: 'More amore event hall, ул. Энгельса, 107, Челябинск', id: 1 }]"
-			)
-
 		a.venue-section__route(
+			v-animate="{animationClass: 'fadeInUp'}"
 			href="https://yandex.ru/maps/?pt=61.381156,55.1477054&z=17&l=map"
 			target="_blank"
 			rel="noopener noreferrer"
