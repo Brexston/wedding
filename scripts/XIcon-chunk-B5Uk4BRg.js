@@ -1,0 +1,1 @@
+import{V as e,h as n,v as s,w as a}from"./vue.esm-bundler-chunk-D9D9G-Dr.js";var r={"aria-hidden":"true"},i=["xlink:href"],f=a({__name:"XIcon",props:{name:{}},setup:a=>(f,m)=>(e(),s("svg",r,[n("use",{"xlink:href":`/wedding/img/icons.6f00ff8f.svg#icon-${a.name}`},null,8,i)]))});export{f as t};

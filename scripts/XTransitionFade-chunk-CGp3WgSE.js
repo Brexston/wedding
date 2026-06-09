@@ -1,0 +1,1 @@
+import{K as e,Ot as a,V as t,g as r,nt as s,t as n}from"./vue.esm-bundler-chunk-D9D9G-Dr.js";import{t as u}from"./_plugin-vue_export-helper-chunk-Cv362yxH.js";var o=a({default:()=>f});var f=u({},[["render",function(a,u){return t(),r(n,{name:"fade"},{default:s(()=>[e(a.$slots,"default")]),_:3})}]]);export{o as n,f as t};

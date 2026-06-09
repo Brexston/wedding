@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, address=no">
+    <link rel="icon" type="image/png" sizes="96x96" href="/wedding/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="/wedding/favicons/favicon.svg">
+    <link rel="shortcut icon" href="/wedding/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/wedding/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/wedding/favicons/site.webmanifest">
+    <meta property="og:title" content="UI Kit">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:image" content="/wedding/img/opengraph-image.jpg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="568">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="/wedding/img/opengraph-image.jpg">
+    <title>UI Kit</title>
+    <style>
+      @view-transition {
+      	navigation: auto;
+      }
+      
+    </style>
+    <style>
+      .project-view {
+      	--view-bg: var(--body-bg);
+      	--view-color: var(--body-color);
+      	--view-block-bg: var(--color-neutral-100);
+      	--view-border: var(--default-border);
+      	--view-link: var(--body-color);
+      	--view-link-hover: var(--color-primary-500);
+      	--view-title-color: var(--body-color);
+      	--view-check: var(--color-primary-300);
+      	position: relative;
+      	z-index: 0;
+      	display: flex;
+      	flex-direction: column;
+      	width: 100%;
+      	min-height: 100vh;
+      	padding: clamp(2.5rem, 1.2944984vw + 2.1966019rem, 3.75rem) 0;
+      	background-color: var(--view-bg);
+      	color: var(--view-color);
+      }
+      
+      .project-view .default-input__input {
+      	min-width: 15.625rem;
+      }
+      
+      .wrapper {
+      	display: flex;
+      	flex: 1 1 100%;
+      	flex-direction: column;
+      }
+      
+      .pv-title {
+      	display: flex;
+      	flex-wrap: wrap;
+      	align-items: center;
+      	gap: 1.25rem;
+      	margin-bottom: clamp(1.5rem, 2.3300971vw + 0.9538835rem, 3.75rem);
+      }
+      
+      .pv-title__text {
+      	margin: 0;
+      	color: var(--view-color);
+      	font-size: clamp(1.125rem, 0.9061489vw + 0.9126214rem, 2rem);
+      	font-weight: 600;
+      }
+      
+      .pv-logo {
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      }
+      
+      .pv-logo__image.img {
+      	--width: clamp(11.25rem, 5.8252427vw + 9.8847087rem, 16.875rem);
+      	--aspect-ratio: 270/70;
+      	--object-fit: contain;
+      }
+      
+      .pv-blocks {
+      	width: 100%;
+      }
+      
+      .pv-blocks--columns {
+      	column-count: auto;
+      	column-width: clamp(16rem, 45vw, 32rem);
+      	column-gap: 0.5rem;
+      }
+      
+      .pv-blocks--columns .pv-block {
+      	margin-bottom: 0.5rem;
+      	break-inside: avoid;
+      }
+      
+      .pv-blocks--list {
+      	display: grid;
+      	grid-template-columns: minmax(0, 1fr);
+      	gap: 1rem;
+      }
+      
+      .pv-block {
+      	display: flex;
+      	flex-direction: column;
+      	width: 100%;
+      	padding: clamp(1.25rem, 0.2588997vw + 1.1893204rem, 1.5rem);
+      	background-color: var(--view-block-bg);
+      }
+      
+      .pv-block__video {
+      	width: 31.25rem;
+      	height: 20.8125rem;
+      }
+      
+      .pv-block--dark {
+      	background-color: var(--color-neutral-900);
+      	color: var(--color-neutral-100);
+      	--view-title-color: var(--color-neutral-100);
+      }
+      
+      .pv-block--dark .default-input {
+      	--di-color: var(--color-neutral-100);
+      	--di-placeholder-color: var(--color-neutral-300);
+      	--di-bg: var(--color-neutral-900);
+      	--di-bg-hover: var(--color-neutral-900);
+      	--di-bg-focus: var(--color-neutral-900);
+      	--di-border-color: var(--color-primary-400);
+      	--di-border-color-hover: var(--color-primary-300);
+      	--di-border-color-focus: var(--color-primary-300);
+      	--di-label-color: var(--color-neutral-200);
+      	--di-bg-loading: var(--color-neutral-900);
+      	--di-bg-loading-gradient: var(--color-neutral-500);
+      }
+      
+      .pv-block__title {
+      	margin: 0 0 clamp(2.5rem, -1.0355987vw + 2.7427184rem, 1.5rem);
+      	color: var(--view-title-color);
+      	font-size: clamp(1.125rem, 0.9061489vw + 0.9126214rem, 2rem);
+      	font-weight: 600;
+      }
+      
+      .pv-block__nav {
+      	display: flex;
+      	flex-direction: column;
+      	gap: 0.875rem;
+      }
+      
+      .pv-block__preview {
+      	display: flex;
+      	flex-wrap: wrap;
+      	gap: 1rem;
+      	width: 100%;
+      }
+      
+      .pv-block__items {
+      	display: flex;
+      	flex-direction: column;
+      	gap: 1rem;
+      	width: 100%;
+      	max-width: 100%;
+      }
+      
+      .pv-block__item {
+      	max-width: 100%;
+      }
+      
+      .pv-block__devider {
+      	flex: 1 1 100%;
+      	width: 100%;
+      	border-bottom: 0.0625rem solid var(--view-border);
+      }
+      
+      .pv-block__items--row {
+      	flex: 1 1 100%;
+      	flex-direction: row;
+      	flex-wrap: wrap;
+      	align-items: flex-end;
+      	column-gap: 1rem;
+      }
+      
+      .pv-block__items--align-start {
+      	align-items: flex-start;
+      }
+      
+      .skeleton-preview-card {
+      	display: flex;
+      	flex-direction: column;
+      	gap: 0.75rem;
+      	width: 17.5rem;
+      }
+      
+      .skeleton-preview-card__image {
+      	width: 100%;
+      	height: 9.25rem;
+      	border-radius: 0.5rem;
+      	background-color: var(--color-neutral-200);
+      }
+      
+      .skeleton-preview-card__title {
+      	margin: 0;
+      	font-size: 1.125rem;
+      	line-height: 1.3;
+      }
+      
+      .skeleton-preview-card__text {
+      	margin: 0;
+      	font-size: 0.875rem;
+      	line-height: 1.45;
+      }
+      
+      .skeleton-preview-row {
+      	display: flex;
+      	align-items: center;
+      	gap: 0.875rem;
+      	width: 20rem;
+      }
+      
+      .skeleton-preview-row__avatar {
+      	flex-shrink: 0;
+      	width: 3rem;
+      	height: 3rem;
+      	border-radius: 50%;
+      	background-color: var(--color-neutral-200);
+      }
+      
+      .skeleton-preview-row__content {
+      	display: flex;
+      	flex-direction: column;
+      	gap: 0.375rem;
+      }
+      
+      .skeleton-preview-row__title {
+      	font-size: 1rem;
+      	line-height: 1.3;
+      }
+      
+      .skeleton-preview-row__text {
+      	font-size: 0.875rem;
+      	line-height: 1.35;
+      }
+      
+      .skeleton-preview-api-card {
+      	display: grid;
+      	grid-template-columns: 6rem 1fr;
+      	align-items: start;
+      	gap: 1rem;
+      	width: 22.5rem;
+      }
+      
+      .skeleton-preview-api-card__media {
+      	width: 6rem;
+      	height: 4.5rem;
+      	border-radius: 0.5rem;
+      	background-color: var(--color-neutral-200);
+      }
+      
+      .skeleton-preview-api-card__content {
+      	display: flex;
+      	flex-direction: column;
+      	gap: 0.5rem;
+      }
+      
+      .skeleton-preview-api-card__title {
+      	margin: 0;
+      	font-size: 1rem;
+      	line-height: 1.3;
+      }
+      
+      .skeleton-preview-api-card__text {
+      	margin: 0;
+      	font-size: 0.875rem;
+      	line-height: 1.4;
+      }
+      
+      .pv-link {
+      	display: flex;
+      	align-items: flex-start;
+      	justify-content: space-between;
+      	gap: 0.5rem;
+      	margin: 0;
+      	padding: 0;
+      	color: var(--view-link);
+      	font-size: clamp(1rem, 0.1294498vw + 0.9696602rem, 1.125rem);
+      	font-weight: 600;
+      	text-decoration: none;
+      	transition: color 0.3s ease;
+      }
+      
+      .pv-link::after {
+      	content: '';
+      	display: block;
+      	width: 1.5rem;
+      	height: 1.5rem;
+      	background-color: var(--view-check);
+      }
+      
+      .pv-link:not(:last-child) {
+      	padding-bottom: 0.875rem;
+      	border-bottom: 0.0625rem solid var(--view-border);
+      }
+      
+      @media (hover: hover) and (pointer: fine) {
+      	.pv-link:hover {
+      		color: var(--view-link-hover);
+      	}
+      }
+      
+      .pv-link.checked::after {
+      	background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.38541 10.4817L13.2648 3.46179L14.716 4.7934L7.83668 11.8133C7.06234 12.6035 5.76696 12.6202 4.9712 11.8502L1.28369 8.28204L2.69791 6.91362L6.38541 10.4817Z' fill='%23422EFF'/%3E%3C/svg%3E%0A");
+      	background-repeat: no-repeat;
+      	background-position: center;
+      	background-size: 1rem;
+      }
+      
+      .gallery {
+      	display: flex;
+      	flex-wrap: wrap;
+      	gap: 1.875rem;
+      }
+      
+      .gallery__item {
+      	display: block;
+      	width: 23.4375rem;
+      	height: 15.625rem;
+      }
+    </style>
+    <script type="module" crossorigin src="/wedding/scripts/vue.esm-bundler-chunk-D9D9G-Dr.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/preload-helper-chunk-CPlxUhXS.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/useI18n-chunk-DY_x5AKa.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/dist-chunk-BqXHCgkc.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/dist-chunk-DAXNW3np.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/pinia-chunk-Dwk1KN7_.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/vue-yandex-maps-chunk-COizN4n1.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/toast-chunk-zH3MoY8S.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/modals.store-chunk-7TjumS7A.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/main-chunk-t_MsM4fI.js"></script>
+    <link rel="stylesheet" crossorigin href="/wedding/styles/vue-yandex-maps-e2qR0_yV.css">
+    <link rel="stylesheet" crossorigin href="/wedding/styles/main-c8nkDWbD.css">
+  </head>
+  <body class="page">
+    <div id="app">
+      <suspense>
+        <root-component csrf-token="" :captcha="{ key: &quot;&quot;, type: &quot;yacaptcha&quot; }" :docs="[{ code: 'user-agreement', link: '/agreement/' }, { code: 'privacy-policy', link: '/policy/' }]">
+          <main class="page__main">
+                <section class="page-header">
+                  <div class="wrapper">
+                    <div class="page-header__inner">
+                      <div class="page-header__top">
+                        <h1 class="page-header__title title title--h1">UI Kit</h1>
+                        <div class="page-header__actions"><a class="link link--color-primary" href="/wedding/">Назад</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+            <section class="project-view">
+              <div class="wrapper">
+                <x-tabs initial-tab="All" active-class="active">
+                  <template #default="{ activeTab, getActiveClass, tabEvents }">
+                    <nav class="tabs" style="overflow: hidden; flex-wrap: wrap">
+                      <button class="tab tab--default" v-initial-scroll :class="getActiveClass('All')" v-on="tabEvents('All')">All</button>
+                      <button class="tab tab--default" :class="getActiveClass('Breadcrumbs')" v-on="tabEvents('Breadcrumbs')">Breadcrumbs</button>
+                      <button class="tab tab--default" :class="getActiveClass('Typography')" v-on="tabEvents('Typography')">Typography</button>
+                      <button class="tab tab--default" :class="getActiveClass('Buttons')" v-on="tabEvents('Buttons')">Buttons</button>
+                      <button class="tab tab--default" :class="getActiveClass('Links')" v-on="tabEvents('Links')">Links</button>
+                      <button class="tab tab--default" :class="getActiveClass('Icons')" v-on="tabEvents('Icons')">Icons</button>
+                      <button class="tab tab--default" :class="getActiveClass('Dropdowns')" v-on="tabEvents('Dropdowns')">Dropdowns</button>
+                      <button class="tab tab--default" :class="getActiveClass('Tabs')" v-on="tabEvents('Tabs')">Tabs</button>
+                      <button class="tab tab--default" :class="getActiveClass('Accordion')" v-on="tabEvents('Accordion')">Accordion</button>
+                      <button class="tab tab--default" :class="getActiveClass('Modals')" v-on="tabEvents('Modals')">Modals</button>
+                      <button class="tab tab--default" :class="getActiveClass('Gallery')" v-on="tabEvents('Gallery')">Gallery</button>
+                      <button class="tab tab--default" :class="getActiveClass('Slider')" v-on="tabEvents('Slider')">Slider</button>
+                      <button class="tab tab--default" :class="getActiveClass('Pagination')" v-on="tabEvents('Pagination')">Pagination</button>
+                      <button class="tab tab--default" :class="getActiveClass('Video')" v-on="tabEvents('Video')">Video</button>
+                      <button class="tab tab--default" :class="getActiveClass('Forms')" v-on="tabEvents('Forms')">Forms</button>
+                      <button class="tab tab--default" :class="getActiveClass('Show more')" v-on="tabEvents('Show more')">Show more</button>
+                      <button class="tab tab--default" :class="getActiveClass('Inputs')" v-on="tabEvents('Inputs')">Inputs</button>
+                      <button class="tab tab--default" :class="getActiveClass('Textarea')" v-on="tabEvents('Textarea')">Textarea</button>
+                      <button class="tab tab--default" :class="getActiveClass('Select')" v-on="tabEvents('Select')">Select</button>
+                      <button class="tab tab--default" :class="getActiveClass('Checkbox')" v-on="tabEvents('Checkbox')">Checkbox</button>
+                      <button class="tab tab--default" :class="getActiveClass('Radio')" v-on="tabEvents('Radio')">Radio</button>
+                      <button class="tab tab--default" :class="getActiveClass('Switch')" v-on="tabEvents('Switch')">Switch</button>
+                      <button class="tab tab--default" :class="getActiveClass('Search')" v-on="tabEvents('Search')">Search</button>
+                      <button class="tab tab--default" :class="getActiveClass('Date')" v-on="tabEvents('Date')">Date</button>
+                      <button class="tab tab--default" :class="getActiveClass('File')" v-on="tabEvents('File')">File</button>
+                      <button class="tab tab--default" :class="getActiveClass('Range')" v-on="tabEvents('Range')">Range</button>
+                      <button class="tab tab--default" :class="getActiveClass('Code Input')" v-on="tabEvents('Code Input')">Code Input</button>
+                      <button class="tab tab--default" :class="getActiveClass('Loaders')" v-on="tabEvents('Loaders')">Loaders</button>
+                      <button class="tab tab--default" :class="getActiveClass('Skeletons')" v-on="tabEvents('Skeletons')">Skeletons</button>
+                      <button class="tab tab--default" :class="getActiveClass('Toasts')" v-on="tabEvents('Toasts')">Toasts</button>
+                      <button class="tab tab--default" :class="getActiveClass('Social Share')" v-on="tabEvents('Social Share')">Social Share</button>
+                      <button class="tab tab--default" :class="getActiveClass('I18n')" v-on="tabEvents('I18n')">I18n</button>
+                      <button class="tab tab--default" :class="getActiveClass('Tooltip')" v-on="tabEvents('Tooltip')">Tooltip</button>
+                    </nav>
+                    <div class="tab-content"><br>
+                      <template v-if="['All', 'Breadcrumbs'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Breadcrumbs</h3>
+                          <div class="pv-block__preview">
+                                <nav class="breadcrumbs">
+                                  <div class="breadcrumbs__wrapper">
+                                    <ol class="breadcrumbs__items" itemscope itemtype="https://schema.org/BreadcrumbList">
+                                      <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a class="breadcrumbs__link" href="/wedding/" aria-current="page" itemprop="item">Главная</a>
+                                        <meta itemprop="position" content="0">
+                                      </li>
+                                      <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">UI</li>
+                                    </ol>
+                                  </div>
+                                </nav>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Typography'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Typography & Animations</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items">
+                              <div class="pv-block__item" v-animate="{animationClass: 'fadeInUp'}">
+                                <h3> Primary Font Family - Helvetica Regular</h3>
+                              </div>
+                              <div class="pv-block__item" v-animate="{animationClass: 'fadeInUp'}">
+                                <h3 style="font-weight: 700;">Primary Font Family - Helvetica Bold</h3>
+                              </div>
+                            </div>
+                            <div class="pv-block__items">
+                              <div class="pv-block__item" v-animate="{animationClass: 'fadeInUp'}">
+                                <h3 style="fontFamily: var(--font-family-secondary);">Secondary Font Family - Montserrat Regular</h3>
+                              </div>
+                              <div class="pv-block__item" v-animate="{animationClass: 'fadeInUp'}">
+                                <h3 style="fontFamily: var(--font-family-secondary); font-weight: 700; ">Secondary Font Family - Montserrat Bold</h3>
+                              </div>
+                            </div>
+                            <div class="pv-block__devider"></div>
+                            <div class="pv-block__items" v-animate="{animationClass: 'fadeInUp'}">
+                              <div class="pv-block__item">
+                                <h1 class="title title--h1">Heading 1</h1>
+                              </div>
+                              <div class="pv-block__item">
+                                <h2 class="title title--h2">Heading 2</h2>
+                              </div>
+                              <div class="pv-block__item">
+                                <h3 class="title title--h3">Heading 3</h3>
+                              </div>
+                              <div class="pv-block__item">
+                                <h4 class="title title--h4">Heading 4</h4>
+                              </div>
+                              <div class="pv-block__item">
+                                <h5 class="title title--h5">Heading 5</h5>
+                              </div>
+                              <div class="pv-block__item">
+                                <h6 class="title title--h6">Heading 6</h6>
+                              </div>
+                            </div>
+                            <div class="pv-block__items pv-block__items--row" v-animate="{animationClass: 'fadeInUp'}">
+                              <div class="pv-block__item">
+                                <p class="text">Paragraph 1</p>
+                              </div>
+                              <div class="pv-block__item">
+                                <p class="text text--size-s">Paragraph 2</p>
+                              </div>
+                              <div class="pv-block__item">
+                                <p class="text text--caption">Caption</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Buttons'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Buttons default (.btn)</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items pv-block__items--row">
+                              <div class="pv-block__item">
+                                <button class="btn">
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-left"></use>
+                                      </svg><span class="btn__text">Button</span>
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-right"></use>
+                                      </svg>
+                                </button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn" disabled><span class="btn__text">Button disabled</span></button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn" loading="true"><span class="btn__text">Button loading</span></button>
+                              </div>
+                            </div>
+                            <div class="pv-block__items pv-block__items--row">
+                              <div class="pv-block__item">
+                                <button class="btn btn--size-s">
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-left"></use>
+                                      </svg><span class="btn__text">size-s</span>
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-right"></use>
+                                      </svg>
+                                </button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--size-s" disabled><span class="btn__text">size-s disabled</span></button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--size-s" loading="true"><span class="btn__text">size-s loading</span></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Buttons primary ( .btn.btn--color-primary )</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items pv-block__items--row">
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-primary">
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-left"></use>
+                                      </svg><span class="btn__text">Button</span>
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-right"></use>
+                                      </svg>
+                                </button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-primary disabled"><span class="btn__text">Button disabled</span></button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-primary" loading="true"><span class="btn__text">Button loading</span></button>
+                              </div>
+                            </div>
+                            <div class="pv-block__items pv-block__items--row">
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-primary btn--size-s">
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-left"></use>
+                                      </svg><span class="btn__text">size-s</span>
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-right"></use>
+                                      </svg>
+                                </button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-primary btn--size-s" disabled><span class="btn__text">size-s disabled</span></button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-primary btn--size-s" loading="true"><span class="btn__text">size-s loading</span></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pv-block pv-block--dark">
+                          <h3 class="pv-block__title">Buttons secondary ( .btn.btn--color-secondary )</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items pv-block__items--row">
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-secondary">
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-left"></use>
+                                      </svg><span class="btn__text">Button</span>
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-right"></use>
+                                      </svg>
+                                </button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-secondary disabled"><span class="btn__text">Button disabled</span></button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-secondary" loading="true"><span class="btn__text">Button loading</span></button>
+                              </div>
+                            </div>
+                            <div class="pv-block__items pv-block__items--row">
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-secondary btn--size-s">
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-left"></use>
+                                      </svg><span class="btn__text">size-s</span>
+                                      <svg class="btn__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-right"></use>
+                                      </svg>
+                                </button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-secondary btn--size-s" disabled><span class="btn__text">size-s disabled</span></button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-secondary btn--size-s" loading="true"><span class="btn__text">size-s loading</span></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Links'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Links</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items">
+                              <div class="pv-block__item"><a class="link link--color-primary" href="#">Link</a></div>
+                              <div class="pv-block__item"><a class="link link--color-primary disabled" href="#">Link Disabled</a></div>
+                              <div class="pv-block__item"><a class="link link--color-primary link--underlined" href="#">Link Underlined</a></div>
+                              <div class="pv-block__item">
+                                <p>Some text with a <a class="link link--color-primary" href="#">link</a> inside</p>
+                              </div>
+                              <div class="pv-block__item">
+                                <p>Some text with an <a class="link link--color-primary link--underlined" href="#">underlined link</a> inside</p>
+                              </div>
+                              <div class="pv-block__item"><a class="link link--color-primary" href="#">Link with icon
+                                      <svg class="link__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-right"></use>
+                                      </svg></a></div>
+                              <div class="pv-block__item"><a class="link link--color-primary" href="#">
+                                      <svg class="link__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-left"></use>
+                                      </svg>Link with icon
+                                      <svg class="link__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-right"></use>
+                                      </svg></a></div>
+                              <div class="pv-block__item"><a class="link link--color-primary" href="#" loading="true">
+                                      <svg class="link__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-left"></use>
+                                      </svg><span class="link__text">Link with loader </span>
+                                      <svg class="link__icon" aria-hidden="true">
+                                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-right"></use>
+                                      </svg></a></div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Show More'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Show More (cut string)</h3>
+                          <div class="pv-block__preview">
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content" style="--cut-string-value: 100">
+                                <p>Вместо класса 'test-text' добавляем свой и в нем управляем переменной cut-string-value</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content">
+                                <p>Тут будет только кнопка <span style="color: #336699">'Показать еще'</span>. пам-пам.  пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам.</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content">
+                                <p>Тут будет не только кнопка <span style="color: #336699">'Показать еще'</span>, но и кнопка <span style="color: #336699">'Скрыть'</span>. пам-пам.  пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам.</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                  <button class="link link--color-primary" v-else-if="isActive" @click="toggleActive">Скрыть</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Show More (max-height)</h3>
+                          <div class="pv-block__preview">
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content" mode="block">
+                                <p>Вместо класса 'test-text' добавляем свой и в нем управляем переменной block-height</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content" mode="block">
+                                <p>Тут будет только кнопка <span style="color: #336699">'Показать еще'</span>. пам-пам.  пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам.</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content" mode="block">
+                                <p>Тут будет не только кнопка <span style="color: #336699">'Показать еще'</span>, но и кнопка <span style="color: #336699">'Скрыть'</span>. пам-пам.  пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам.</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                  <button class="link link--color-primary" v-else-if="isActive" @click="toggleActive">Скрыть</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Icons'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Icon</h3>
+                          <div class="pv-block__preview">
+                            <p>Просто иконки (например лайки, просмотры, дата у новости и т.д)</p>
+                            <div class="pv-block__items pv-block__items--row">
+                              <div class="pv-block__item">
+                                    <svg class="icon" aria-hidden="true">
+                                      <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-arrow-right"></use>
+                                    </svg>
+                              </div>
+                              <div class="pv-block__item">
+                                    <svg class="icon" aria-hidden="true">
+                                      <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-calendar"></use>
+                                    </svg>
+                              </div>
+                              <div class="pv-block__item">
+                                    <svg class="icon" aria-hidden="true">
+                                      <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-clip"></use>
+                                    </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Dropdowns'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Dropdown</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items pv-block__items--row">
+                              <x-dropdown aria-id="dropdown-1" :distance="10">
+                                <button class="btn">AriaId</button>
+                                <template #content>
+                                  <p>aria-id: идентификатор для привязки aria-describedby и контейнера.</p>
+                                  <p>distance: расстояние между триггером и всплывающим меню (10px).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown :delay="2000" placement="top" :distance="10">
+                                <button class="btn">Delay 2s</button>
+                                <template #content>
+                                  <p>delay: задержка открытия/закрытия (2000мс).</p>
+                                  <p>placement: начальная позиция всплывающего меню относительно триггера (top).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown :delay="{ show: 0, hide: 1000 }" placement="top" :distance="10">
+                                <button class="btn">Show 0s, Hide 1s</button>
+                                <template #content>
+                                  <p>delay: объект с задержками для show (0мс) и hide (1000мс).</p>
+                                  <p>placement: начальная позиция всплывающего меню относительно триггера (top).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown shift shift-cross-axis :distance="10">
+                                <button class="btn">Strategy fixed + shift axis</button>
+                                <template #content>
+                                  <p>shift: смещение dropdown при нехватке места (включено).</p>
+                                  <p>shift-cross-axis: смещение вдоль перпендикулярной оси (включено).</p>
+                                  <p>strategy: стратегия позиционирования popper (fixed, по умолчанию).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown shift shift-cross-axis strategy="absolute" :distance="10">
+                                <button class="btn">Strategy absolute + shift axis</button>
+                                <template #content>
+                                  <p>shift: смещение dropdown при нехватке места (включено).</p>
+                                  <p>shift-cross-axis: смещение вдоль перпендикулярной оси (включено).</p>
+                                  <p>strategy: стратегия позиционирования popper (absolute).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown theme="null" placement="bottom" :distance="10">
+                                <button class="btn">Theme: null</button>
+                                <template #content>
+                                  <p style="padding: 10px; background-color: #cccccc; border-radius: 10px">Прозрачная тема без стрелок и фона, чтобы отображать только проброшенный контент (например, этот абзац с черным текстом на сером фоне со скругленными углами)</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown theme="without-arrow" :distance="10">
+                                <button class="btn">Theme: without-arrow</button>
+                                <template #content>
+                                  <p>theme: тема оформления всплывающего меню (without-arrow - без стрелки).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown :distance="10">
+                                <button class="btn">With Hide btn</button>
+                                <template #content="{}">
+                                  <p>В слоте content доступна функция hide для программного закрытия dropdown.</p>
+                                  <button class="btn btn btn--color-secondary" @click="hide">Закрыть</button>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown positioning-disabled :distance="10">
+                                <button class="btn">Positioning disabled</button>
+                                <template #content>
+                                  <p>positioning-disabled: отключение динамического позиционирования всплывающего меню (включено).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown :triggers="[&quot;hover&quot;,&quot;click&quot;]" :distance="10">
+                                <button class="btn">Hover</button>
+                                <template #content>
+                                  <p>triggers: события для открытия всплывающего меню (hover и click).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown :triggers="[&quot;hover&quot;,&quot;click&quot;]" :popper-triggers="[&quot;hover&quot;]" :distance="10">
+                                <button class="btn">Hover (popper triggers)</button>
+                                <template #content>
+                                  <p>triggers: события для открытия всплывающего меню (hover и click).</p>
+                                  <p>popper-triggers: альтернативные события для управления popper отдельно от триггера (hover).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown placement="top-start" :distance="10">
+                                <button class="btn">Placement Top-Start</button>
+                                <template #content>
+                                  <p>placement: начальная позиция всплывающего меню относительно триггера (top-start).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown placement="top" :skidding="80">
+                                <button class="btn">Placement Top + Skidding 80</button>
+                                <template #content>
+                                  <p>placement: начальная позиция всплывающего меню относительно триггера (top).</p>
+                                  <p>skidding: смещение поперек основного направления размещения (80px).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown placement="top" :distance="80">
+                                <button class="btn">Placement Top + Distance 80</button>
+                                <template #content>
+                                  <p>placement: начальная позиция всплывающего меню относительно триггера (top).</p>
+                                </template>
+                              </x-dropdown>
+                              <x-dropdown :distance="10">
+                                <button class="btn">Overflow text</button>
+                                <template #content>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer interdum tincidunt molestie. Donec a est pulvinar odio consequat accumsan quis ac lorem. Vivamus quis sagittis diam. Pellentesque laoreet molestie nulla eget finibus.</p>
+                                </template>
+                              </x-dropdown>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Tabs'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Tabs</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items">
+                              <div class="pv-block__item">
+                                <h6>Табы ссылки</h6>
+                                <nav class="tabs"><a class="tab tab--default" href="">First</a><a class="tab tab--default" href="">Second</a><a class="tab tab--default active" v-initial-scroll href="">Third</a><a class="tab tab--default" href="">Fourth</a><a class="tab tab--default" href="">Fifth</a><a class="tab tab--default" href="">Sixth</a>
+                                </nav>
+                              </div>
+                            </div>
+                            <div class="pv-block__items">
+                              <div class="pv-block__item">
+                                <h6>Обычные табы</h6>
+                                <x-tabs initial-tab="Fifth" active-class="active">
+                                  <template #default="{ activeTab, getActiveClass, tabEvents }">
+                                    <nav class="tabs">
+                                      <button class="tab tab--default" :class="getActiveClass('First')" v-on="tabEvents('First')">First</button>
+                                      <button class="tab tab--default" :class="getActiveClass('Second')" v-on="tabEvents('Second')">Second</button>
+                                      <button class="tab tab--default" :class="getActiveClass('Third')" v-on="tabEvents('Third')">Third</button>
+                                      <button class="tab tab--default" :class="getActiveClass('Fourth')" v-on="tabEvents('Fourth')">Fourth</button>
+                                      <button class="tab tab--default" v-initial-scroll :class="getActiveClass('Fifth')" v-on="tabEvents('Fifth')">Fifth</button>
+                                      <button class="tab tab--default" :class="getActiveClass('Sixth')" v-on="tabEvents('Sixth')">Sixth</button>
+                                    </nav>
+                                    <div class="tab-content"><br>
+                                      <transition name="fade" mode="out-in">
+                                        <template v-if="activeTab === 'First'"><span>Таб 1 - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, aspernatur.</span></template>
+                                        <template v-else-if="activeTab === 'Second'"><span>Таб 2 - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, aspernatur.</span></template>
+                                        <template v-else-if="activeTab === 'Third'"><span>Таб 3 - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, aspernatur.</span></template>
+                                        <template v-else-if="activeTab === 'Fourth'"><span>Таб 4 - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, aspernatur.</span></template>
+                                        <template v-else-if="activeTab === 'Fifth'"><span>Таб 5 - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, aspernatur.</span></template>
+                                        <template v-else-if="activeTab === 'Sixth'"><span>Таб 6 - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, aspernatur.</span></template>
+                                      </transition>
+                                    </div>
+                                  </template>
+                                </x-tabs>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Accordion'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Accordion</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items">
+                              <div class="pv-block__item">
+                                    <x-accordion class="accordion" media-until="tablet">
+                                      <template #default="{onToggle, isOpen}">
+                                        <div class="accordion__header" @click="onToggle"><span>Как регулируются в мире конфликты между государствами и какие организации отвечают за их решение?</span>
+                                              <svg class="accordion__header-icon" aria-hidden="true" v-show="!isOpen">
+                                                <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-plus"></use>
+                                              </svg>
+                                              <svg class="accordion__header-icon" aria-hidden="true" v-show="isOpen">
+                                                <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-minus"></use>
+                                              </svg>
+                                        </div>
+                                      </template>
+                                      <template #body>
+                                        <div class="accordion__body">Рост населения и экономическое развитие стран оказывают существенное влияние на мировой порядок. С ростом населения возрастает потребление природных ресурсов, что приводит к усилению экологических проблем. Экономическое развитие стран ведет к наращиванию экономической мощности и политического влияния на международной арене. Это может приводить к установлению новых правил игры в мировой экономике, заключению новых торговых, политических и военных союзов, а также изменению баланса сил между государствами. Кроме того, в условиях глобализации и международного общения различные тенденции в развитии экономики и демографии одних стран сильно влияют на другие страны.</div>
+                                      </template>
+                                    </x-accordion>
+                              </div>
+                              <div class="pv-block__item">
+                                    <x-accordion class="accordion" opened>
+                                      <template #default="{onToggle, isOpen}">
+                                        <div class="accordion__header" @click="onToggle"><span>Как регулируются в мире конфликты между государствами и какие организации отвечают за их решение?</span>
+                                              <svg class="accordion__header-icon" aria-hidden="true" v-show="!isOpen">
+                                                <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-plus"></use>
+                                              </svg>
+                                              <svg class="accordion__header-icon" aria-hidden="true" v-show="isOpen">
+                                                <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-minus"></use>
+                                              </svg>
+                                        </div>
+                                      </template>
+                                      <template #body>
+                                        <div class="accordion__body"><p>Рост населения и экономическое развитие стран оказывают существенное влияние на мировой порядок. С ростом населения возрастает потребление природных ресурсов, что приводит к усилению экологических проблем. Экономическое развитие стран ведет к наращиванию экономической мощности и политического влияния на международной арене. Это может приводить к установлению новых правил игры в мировой экономике, заключению новых торговых, политических и военных союзов, а также изменению баланса сил между государствами. Кроме того, в условиях глобализации и международного общения различные тенденции в развитии экономики и демографии одних стран сильно влияют на другие страны.</p><p>Рост населения и экономическое развитие стран оказывают существенное влияние на мировой порядок. С ростом населения возрастает потребление природных ресурсов, что приводит к усилению экологических проблем. Экономическое развитие стран ведет к наращиванию экономической мощности и политического влияния на международной арене. Это может приводить к установлению новых правил игры в мировой экономике, заключению новых торговых, политических и военных союзов, а также изменению баланса сил между государствами. Кроме того, в условиях глобализации и международного общения различные тенденции в развитии экономики и демографии одних стран сильно влияют на другие страны.</p><p>Рост населения и экономическое развитие стран оказывают существенное влияние на мировой порядок. С ростом населения возрастает потребление природных ресурсов, что приводит к усилению экологических проблем. Экономическое развитие стран ведет к наращиванию экономической мощности и политического влияния на международной арене. Это может приводить к установлению новых правил игры в мировой экономике, заключению новых торговых, политических и военных союзов, а также изменению баланса сил между государствами. Кроме того, в условиях глобализации и международного общения различные тенденции в развитии экономики и демографии одних стран сильно влияют на другие страны.</p><p>Рост населения и экономическое развитие стран оказывают существенное влияние на мировой порядок. С ростом населения возрастает потребление природных ресурсов, что приводит к усилению экологических проблем. Экономическое развитие стран ведет к наращиванию экономической мощности и политического влияния на международной арене. Это может приводить к установлению новых правил игры в мировой экономике, заключению новых торговых, политических и военных союзов, а также изменению баланса сил между государствами. Кроме того, в условиях глобализации и международного общения различные тенденции в развитии экономики и демографии одних стран сильно влияют на другие страны.</p></div>
+                                      </template>
+                                    </x-accordion>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Modals'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Modals</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items pv-block__items--row">
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-primary btn--size-s" @click="openModal('modal-callback', { title: 'Перезвоните мне', description: 'Пожалуйста, оставьте ваш номер телефона и мы вам перезвоним.' })">Show modal with data</button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-primary btn--size-s" @click="openModal('modal-video', { title: 'Название новости, занимающее одну или несколько строк', date: '11.03.2025', video: { poster: 'https://html.xpager.ru/frontend-template-plug/video-poster.webp', sources: [{src: 'https://html.xpager.ru/frontend-template-plug/xpage.mp4', type: 'video/mp4'},{src: 'https://html.xpager.ru/frontend-template-plug/xpage.webm', type: 'video/webm'},] } })">Show video in modal</button>
+                              </div>
+                              <div class="pv-block__item">
+                                <button class="btn btn--color-primary btn--size-s" @click="openModal('modal-video', { title: 'Название новости, занимающее одну или несколько строк', date: '11.03.2025', iframe: { src: 'https://vk.com/video_ext.php?oid=-44270144&amp;id=456245637&amp;hd=2&amp;autoplay=1' } })">Show iframe in modal</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Gallery'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Gallery</h3>
+                          <div class="pv-block__preview">
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 0)"><img class="img__image" src="https://lipsum.app/id/1/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 1)"><img class="img__image" src="https://lipsum.app/id/2/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 2)"><img class="img__image" src="https://lipsum.app/id/3/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 3)"><img class="img__image" src="https://lipsum.app/id/4/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 4)"><img class="img__image" src="https://lipsum.app/id/5/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 5)"><img class="img__image" src="https://lipsum.app/id/6/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 6)"><img class="img__image" src="https://lipsum.app/id/7/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 7)"><img class="img__image" src="https://lipsum.app/id/8/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 8)"><img class="img__image" src="https://lipsum.app/id/9/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 9)"><img class="img__image" src="https://lipsum.app/id/10/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 10)"><img class="img__image" src="https://lipsum.app/id/11/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 11)"><img class="img__image" src="https://lipsum.app/id/12/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 12)"><img class="img__image" src="https://lipsum.app/id/13/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 13)"><img class="img__image" src="https://lipsum.app/id/14/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 14)"><img class="img__image" src="https://lipsum.app/id/15/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 15)"><img class="img__image" src="https://lipsum.app/id/16/270x150" width="270" height="150" loading="lazy"></picture>
+                            <picture class="img pv-block__item" @click="openModal('modal-gallery-2', 16)"><img class="img__image" src="https://lipsum.app/id/17/270x150" width="270" height="150" loading="lazy"></picture>
+                            <x-modal-gallery id="modal-gallery-2" :slides="[{&quot;poster&quot;:&quot;https://lipsum.app/id/1/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/1/1366x768&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/2/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/2/900x1600&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/3/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/3/400x300&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/4/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/4/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/5/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/5/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/6/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/6/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/7/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/7/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/8/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/8/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/9/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/9/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/10/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/10/2560x1600&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/11/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/11/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/12/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/12/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/13/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/13/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/14/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/14/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/15/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/15/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/16/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/16/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;},{&quot;poster&quot;:&quot;https://lipsum.app/id/17/96x64&quot;,&quot;src&quot;:&quot;https://lipsum.app/id/17/1800x1200&quot;,&quot;alt&quot;:&quot;alt&quot;}]"></x-modal-gallery>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Slider'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Slider</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items pv-block__items--row">
+                              <div class="pv-block__item">
+                                    <div class="standard-block__slider">
+                                      <x-slider-content>
+                                        <template #default>
+                                          <article class="swiper-slide">
+                                                <picture class="img standard-block__slider-img" fetchpriority="high"><img class="img__image" src="/wedding/img/content/banner.jpg" alt="alt" width="1208" height="720" loading="lazy"></picture>
+                                          </article>
+                                          <article class="swiper-slide">
+                                                <picture class="img standard-block__slider-img" fetchpriority="low"><img class="img__image" src="/wedding/img/content/banner.jpg" alt="alt" width="1208" height="720" loading="lazy"></picture>
+                                          </article>
+                                          <article class="swiper-slide">
+                                                <picture class="img standard-block__slider-img" fetchpriority="low"><img class="img__image" src="/wedding/img/content/banner.jpg" alt="alt" width="1208" height="720" loading="lazy"></picture>
+                                          </article>
+                                        </template>
+                                      </x-slider-content>
+                                    </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Pagination'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Pagination</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items">
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="100" :limit-items="10"></x-pagination>
+                              </div>
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="30" :limit-items="10"></x-pagination>
+                              </div>
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="100" :limit-items="10" :max-buttons="3"></x-pagination>
+                              </div>
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="100" :limit-items="10" :show-navigation="false"></x-pagination>
+                              </div>
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="100" :limit-items="10" :show-ellipsis="false"></x-pagination>
+                              </div>
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="100" :limit-items="10" :show-navigation="false" :show-ellipsis="false"></x-pagination>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pv-block pv-block--dark">
+                          <h3 class="pv-block__title">Pagination Revert</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items">
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="100" :limit-items="10" theme="light"></x-pagination>
+                              </div>
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="30" :limit-items="10" theme="light"></x-pagination>
+                              </div>
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="100" :limit-items="10" :max-buttons="3" theme="light"></x-pagination>
+                              </div>
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="100" :limit-items="10" :show-navigation="false" theme="light"></x-pagination>
+                              </div>
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="100" :limit-items="10" :show-ellipsis="false" theme="light"></x-pagination>
+                              </div>
+                              <div class="pv-block__item">
+                                <x-pagination :page-current="1" :total-items="100" :limit-items="10" :show-navigation="false" :show-ellipsis="false" theme="light"></x-pagination>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Video'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Video</h3>
+                          <div class="pv-block__preview">
+                            <x-video class="pv-block__video" :video="{ poster: 'https://html.xpager.ru/frontend-template-plug/video-poster.webp', sources: [{ src: 'https://html.xpager.ru/frontend-template-plug/xpage.mp4', type: 'video/mp4' }, { src: 'https://html.xpager.ru/frontend-template-plug/xpage.webm', type: 'video/webm' }] }" :width="640" :height="480" controls></x-video>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Forms'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Свяжитесь с нами</h3>
+                          <div class="pv-block__preview">
+                            <form-contact></form-contact>
+                          </div>
+                        </div>
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Откликнуться на вакансию</h3>
+                          <div class="pv-block__preview">
+                            <form-vacancy :cities="[{ value: 1, label: 'Челябинск' }, { value: 2, label: 'Москва' }, {value: 3, label: 'Санкт-Петербург' }]" :vacancies="[{ value: 1, label: 'Менеджер по продажам' }, { value: 2, label: 'Менеджер по закупкам' }, { value: 3, label: 'Менеджер по логистике' }]"></form-vacancy>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Show more'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Show More (cut string)</h3>
+                          <div class="pv-block__preview">
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content" style="--cut-string-value: 100">
+                                <p>Вместо класса 'test-text' добавляем свой и в нем управляем переменной cut-string-value</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content">
+                                <p>Тут будет только кнопка <span style="color: #336699">'Показать еще'</span>. пам-пам.  пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам.</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content">
+                                <p>Тут будет не только кнопка <span style="color: #336699">'Показать еще'</span>, но и кнопка <span style="color: #336699">'Скрыть'</span>. пам-пам.  пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам.</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                  <button class="link link--color-primary" v-else-if="isActive" @click="toggleActive">Скрыть</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Show More (max-height)</h3>
+                          <div class="pv-block__preview">
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content" mode="block">
+                                <p>Вместо класса 'test-text' добавляем свой и в нем управляем переменной block-height</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content" mode="block">
+                                <p>Тут будет только кнопка <span style="color: #336699">'Показать еще'</span>. пам-пам.  пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам.</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                            <div class="toggle-text">
+                              <x-show-more class="toggle-text__content" mode="block">
+                                <p>Тут будет не только кнопка <span style="color: #336699">'Показать еще'</span>, но и кнопка <span style="color: #336699">'Скрыть'</span>. пам-пам.  пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам. пам-пам.</p>
+                                <template #trigger="{hasOverflow, isActive, toggleActive}">
+                                  <button class="link link--color-primary" v-if="hasOverflow" @click="toggleActive">Показать еще</button>
+                                  <button class="link link--color-primary" v-else-if="isActive" @click="toggleActive">Скрыть</button>
+                                </template>
+                              </x-show-more>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Social Share'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Social Share</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items pv-block__items--row">
+                              <div class="pv-block__item">
+                                <p>Блок с заголовком</p>
+                                    <div class="soc-share">
+                                      <p class="soc-share__title title title--h6">Поделиться</p>
+                                      <div class="soc-share__list"><a class="btn btn--color-secondary soc-share__item" target="_blank" href="https://t.me/share/url?url=https://www.xpage.ru/&amp;text=Интегратор цифровых продуктов">
+                                              <picture class="img btn__icon"><img class="img__image" src="/wedding/img/socials/telegram.svg" alt="alt" width="24" height="24" loading="lazy"></picture></a><a class="btn btn--color-secondary soc-share__item" target="_blank" href="https://connect.ok.ru/offer?url=https://www.xpage.ru/&amp;title=Интегратор цифровых продуктов">
+                                              <picture class="img btn__icon"><img class="img__image" src="/wedding/img/socials/ok.svg" alt="alt" width="24" height="24" loading="lazy"></picture></a><a class="btn btn--color-secondary soc-share__item" target="_blank" href="https://vk.com/share.php?url=https://www.xpage.ru/&amp;text=Интегратор цифровых продуктов">
+                                              <picture class="img btn__icon"><img class="img__image" src="/wedding/img/socials/vk.svg" alt="alt" width="24" height="24" loading="lazy"></picture></a>
+                                        <button class="btn btn--color-secondary soc-share__item" @click="copyToClipboard(url, 'Ссылка скопирована')">
+                                              <picture class="img btn__icon"><img class="img__image" src="/wedding/img/socials/link.svg" alt="alt" width="24" height="24" loading="lazy"></picture>
+                                        </button>
+                                      </div>
+                                    </div>
+                              </div>
+                              <div class="pv-block__item">
+                                <p>Блок без заголовка</p>
+                                    <div class="soc-share">
+                                      <div class="soc-share__list"><a class="btn btn--color-secondary soc-share__item" target="_blank" href="https://t.me/share/url?url=https://www.xpage.ru/&amp;text=Интегратор цифровых продуктов">
+                                              <picture class="img btn__icon"><img class="img__image" src="/wedding/img/socials/telegram.svg" alt="alt" width="24" height="24" loading="lazy"></picture></a><a class="btn btn--color-secondary soc-share__item" target="_blank" href="https://connect.ok.ru/offer?url=https://www.xpage.ru/&amp;title=Интегратор цифровых продуктов">
+                                              <picture class="img btn__icon"><img class="img__image" src="/wedding/img/socials/ok.svg" alt="alt" width="24" height="24" loading="lazy"></picture></a><a class="btn btn--color-secondary soc-share__item" target="_blank" href="https://vk.com/share.php?url=https://www.xpage.ru/&amp;text=Интегратор цифровых продуктов">
+                                              <picture class="img btn__icon"><img class="img__image" src="/wedding/img/socials/vk.svg" alt="alt" width="24" height="24" loading="lazy"></picture></a>
+                                        <button class="btn btn--color-secondary soc-share__item" @click="copyToClipboard(url, 'Ссылка скопирована')">
+                                              <picture class="img btn__icon"><img class="img__image" src="/wedding/img/socials/link.svg" alt="alt" width="24" height="24" loading="lazy"></picture>
+                                        </button>
+                                      </div>
+                                    </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <template v-if="['All', 'Tooltip'].includes(activeTab)">
+                        <div class="pv-block">
+                          <h3 class="pv-block__title">Tooltips</h3>
+                          <div class="pv-block__preview">
+                            <div class="pv-block__items" style="width: fit-content">
+                              <div class="pv-block__item"><span style="margin-right: 10px;">Тултип сверху</span>
+                                    <button class="tooltip" popovertarget="top-1" interestfor="top-1">
+                                      <div class="tooltip__trigger">
+                                            <svg class="icon" aria-hidden="true">
+                                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-info"></use>
+                                            </svg>
+                                      </div>
+                                      <div class="tooltip__content tooltip__content--top" id="top-1" popover>
+                                <div style="padding: 12px; background-color: #fff; border-radius: 8px; border: 1px solid #888">Полезная подсказка</div>
+                                      </div>
+                                    </button>
+                              </div>
+                              <div class="pv-block__item"><span style="margin-right: 10px;">Тултип сверху справа</span>
+                                    <button class="tooltip" popovertarget="top-2" interestfor="top-2">
+                                      <div class="tooltip__trigger">
+                                            <svg class="icon" aria-hidden="true">
+                                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-info"></use>
+                                            </svg>
+                                      </div>
+                                      <div class="tooltip__content tooltip__content--top-right" id="top-2" popover>
+                                <div style="padding: 12px; background-color: #fff; border-radius: 8px; border: 1px solid #888">Полезная подсказка</div>
+                                      </div>
+                                    </button>
+                              </div>
+                              <div class="pv-block__item"><span style="margin-right: 10px;">Тултип сверху слева</span>
+                                    <button class="tooltip" popovertarget="top-3" interestfor="top-3">
+                                      <div class="tooltip__trigger">
+                                            <svg class="icon" aria-hidden="true">
+                                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-info"></use>
+                                            </svg>
+                                      </div>
+                                      <div class="tooltip__content tooltip__content--top-left" id="top-3" popover>
+                                <div style="padding: 12px; background-color: #fff; border-radius: 8px; border: 1px solid #888">Полезная подсказка</div>
+                                      </div>
+                                    </button>
+                              </div>
+                              <div class="pv-block__item"><span style="margin-right: 10px;">Тултип внизу</span>
+                                    <button class="tooltip" popovertarget="bottom-1" interestfor="bottom-1">
+                                      <div class="tooltip__trigger">
+                                            <svg class="icon" aria-hidden="true">
+                                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-info"></use>
+                                            </svg>
+                                      </div>
+                                      <div class="tooltip__content tooltip__content" id="bottom-1" popover>
+                                <div style="padding: 12px; background-color: #fff; border-radius: 8px; border: 1px solid #888">Полезная подсказка</div>
+                                      </div>
+                                    </button>
+                              </div>
+                              <div class="pv-block__item"><span style="margin-right: 10px;">Тултип внизу слева</span>
+                                    <button class="tooltip" popovertarget="bottom-2" interestfor="bottom-2">
+                                      <div class="tooltip__trigger">
+                                            <svg class="icon" aria-hidden="true">
+                                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-info"></use>
+                                            </svg>
+                                      </div>
+                                      <div class="tooltip__content tooltip__content--bottom-left" id="bottom-2" popover>
+                                <div style="padding: 12px; background-color: #fff; border-radius: 8px; border: 1px solid #888">Полезная подсказка</div>
+                                      </div>
+                                    </button>
+                              </div>
+                              <div class="pv-block__item"><span style="margin-right: 10px;">Тултип внизу справа</span>
+                                    <button class="tooltip" popovertarget="bottom-3" interestfor="bottom-3">
+                                      <div class="tooltip__trigger">
+                                            <svg class="icon" aria-hidden="true">
+                                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-info"></use>
+                                            </svg>
+                                      </div>
+                                      <div class="tooltip__content tooltip__content--bottom-right" id="bottom-3" popover>
+                                <div style="padding: 12px; background-color: #fff; border-radius: 8px; border: 1px solid #888">Полезная подсказка</div>
+                                      </div>
+                                    </button>
+                              </div>
+                              <div class="pv-block__item"><span style="margin-right: 10px;">Тултип справа</span>
+                                    <button class="tooltip" popovertarget="right" interestfor="right">
+                                      <div class="tooltip__trigger">
+                                            <svg class="icon" aria-hidden="true">
+                                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-info"></use>
+                                            </svg>
+                                      </div>
+                                      <div class="tooltip__content tooltip__content--right" id="right" popover>
+                                <div style="padding: 12px; background-color: #fff; border-radius: 8px; border: 1px solid #888">Полезная подсказка</div>
+                                      </div>
+                                    </button>
+                              </div>
+                              <div class="pv-block__item"><span style="margin-right: 10px;">Тултип слева</span>
+                                    <button class="tooltip" popovertarget="left" interestfor="left">
+                                      <div class="tooltip__trigger">
+                                            <svg class="icon" aria-hidden="true">
+                                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-info"></use>
+                                            </svg>
+                                      </div>
+                                      <div class="tooltip__content tooltip__content--left" id="left" popover>
+                                <div style="padding: 12px; background-color: #fff; border-radius: 8px; border: 1px solid #888">Полезная подсказка</div>
+                                      </div>
+                                    </button>
+                              </div>
+                            </div>
+                            <div class="pv-block__items" style="width: fit-content">
+                              <div class="pv-block__item">
+                                    <button class="tooltip" popovertarget="default" interestfor="default">
+                                      <div class="tooltip__trigger"><span style="margin-right: 10px;">Контент - триггер для тултипа</span>
+                                      </div>
+                                      <div class="tooltip__content tooltip__content" id="default" popover>
+                                <div style="padding: 12px; background-color: #fff; border-radius: 8px; border: 1px solid #888; min-width: 300px">Если не добавлять контент в слот триггер, то будет просто иконка с вопросом. Если не задавать позицию, то тултип будет снизу по центру</div>
+                                      </div>
+                                    </button>
+                              </div>
+                              <div class="pv-block__item">
+                                    <button class="tooltip" popovertarget="right" interestfor="right">
+                                      <div class="tooltip__trigger">
+                                <div class="btn">Ещё контент</div>
+                                      </div>
+                                      <div class="tooltip__content tooltip__content" id="right" popover>
+                                <div style="padding: 12px; background-color: #fff; border-radius: 8px; border: 1px solid #888">Полезная подсказка</div>
+                                      </div>
+                                    </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </template>
+                      <ui-preview :tab="activeTab"></ui-preview>
+                    </div>
+                  </template>
+                </x-tabs>
+              </div>
+            </section>
+          </main>
+        </root-component>
+      </suspense>
+      <div class="modals" id="modals-container">
+        <x-modal id="modal-menu-mobile" animation="fade-in-right">
+          <template #default="{close}">
+            <section class="mobile-menu">
+              <div class="mobile-menu__top">
+                <button class="mobile-menu__close" data-dialog-close aria-label="закрыть" @click="close">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-close"></use>
+                      </svg>
+                </button>
+                <div class="mobile-menu__title title title--h2">Меню</div>
+                <div class="mobile-menu__lang-toggle"><a class="mobile-menu__lang-toggle-link active" href="#">Ru</a><a class="mobile-menu__lang-toggle-link" href="#">En</a></div>
+              </div>
+              <div class="mobile-menu__content">
+                <nav class="mobile-menu__nav">
+                  <x-accordion class="mobile-menu__nav-item">
+                    <template #default="{onToggle, isOpen}">
+                      <button class="mobile-menu__nav-el" @click="onToggle"><span class="mobile-menu__nav-name">О комитете</span>
+                            <svg class="mobile-menu__nav-icon" aria-hidden="true">
+                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-chevron-down"></use>
+                            </svg>
+                      </button>
+                    </template>
+                    <template #body>
+                      <div class="mobile-menu__nav-body">
+                        <div class="mobile-menu__nav-list">
+                          <button class="mobile-menu__nav-link link" @click="openModal('modal-submenu-mobile')">О комитете</button>
+                          <button class="mobile-menu__nav-link link" @click="openModal('modal-submenu-mobile')">Пресс-центр</button>
+                        </div>
+                      </div>
+                    </template>
+                  </x-accordion>
+                  <x-accordion class="mobile-menu__nav-item">
+                    <template #default="{onToggle, isOpen}">
+                      <button class="mobile-menu__nav-el" @click="onToggle"><span class="mobile-menu__nav-name">Пресс-центр</span>
+                            <svg class="mobile-menu__nav-icon" aria-hidden="true">
+                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-chevron-down"></use>
+                            </svg>
+                      </button>
+                    </template>
+                    <template #body>
+                      <div class="mobile-menu__nav-body">
+                        <div class="mobile-menu__nav-list">
+                          <button class="mobile-menu__nav-link link" @click="openModal('modal-submenu-mobile')">О комитете</button>
+                          <button class="mobile-menu__nav-link link" @click="openModal('modal-submenu-mobile')">Пресс-центр</button>
+                        </div>
+                      </div>
+                    </template>
+                  </x-accordion>
+                  <div class="mobile-menu__nav-item"><a class="mobile-menu__nav-el" href="#"><span class="mobile-menu__nav-name">Контакты</span></a></div>
+                </nav>
+              </div>
+              <div class="mobile-menu__bottom">
+                <div class="mobile-menu__contacts"><a class="mobile-menu__contacts-el link title title--h3" href="mailto:info@olympic.ru">info@xpage.ru</a></div>
+                    <div class="socials footer__socials">
+                      <div class="socials__list"><a class="socials__item" href="#" target="_blank">
+                              <picture class="img socials__item-icon"><img class="img__image" src="/wedding/img/content/socials/inst.svg" alt="alt" width="24" height="24" loading="lazy"></picture></a><a class="socials__item" href="#" target="_blank">
+                              <picture class="img socials__item-icon"><img class="img__image" src="/wedding/img/content/socials/vk.svg" alt="alt" width="24" height="24" loading="lazy"></picture></a>
+                      </div>
+                    </div>
+              </div>
+            </section>
+          </template>
+        </x-modal>
+      </div>
+    </div>
+  </body>
+</html>

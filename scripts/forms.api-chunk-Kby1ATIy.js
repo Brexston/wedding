@@ -1,0 +1,1 @@
+import{t as a}from"./api-chunk-CdMzJqr7.js";var t={CONTACT_FORM:"requestContactForm",VACANCY_FORM:"requestVacancyForm"},c="form",o={requestContactForm:async o=>(await a.post(`${c}/contact`,o,{key:t.CONTACT_FORM,captcha:!0})).data,requestVacancyForm:async o=>(await a.post(`${c}/vacancy`,o,{key:t.VACANCY_FORM,captcha:!0})).data};export{o as n,t};

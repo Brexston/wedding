@@ -1,0 +1,1 @@
+import{K as e,V as t,g as a,nt as r,t as s}from"./vue.esm-bundler-chunk-D9D9G-Dr.js";import{t as u}from"./_plugin-vue_export-helper-chunk-Cv362yxH.js";var n=u({},[["render",function(u,n){return t(),a(s,{name:"scale"},{default:r(()=>[e(u.$slots,"default")]),_:3})}]]);export{n as default};
