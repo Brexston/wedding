@@ -12,6 +12,7 @@
 		"watch": "vite build --watch",
 		"build": "time npm run lint && vite build",
 		"build:ci": "vite build",
+		"build:pages": "npm run build:ci -- -m initial && rm -rf docs && cp -r dist docs && touch docs/.nojekyll",
 		"build-initial": "npm run lint && vite build -m initial",
 		"deploy-layout": "dotenv -- sh -c 'time npm run lint && vite build -m deploy && time rsync -az --delete --progress dist/ html.xpager.ru@html.xpager.ru:/srv/www/html.xpager.ru/htdocs/public/$VITE_APP_NAME'",
 		"lint": "eslint --fix && vue-tsc -b && stylelint . --fix",

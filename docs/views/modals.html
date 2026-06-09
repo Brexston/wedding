@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, address=no">
+    <link rel="icon" type="image/png" sizes="96x96" href="/wedding/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="/wedding/favicons/favicon.svg">
+    <link rel="shortcut icon" href="/wedding/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/wedding/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/wedding/favicons/site.webmanifest">
+    <meta property="og:title" content="Модальные окна">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:image" content="/wedding/img/opengraph-image.jpg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="568">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="/wedding/img/opengraph-image.jpg">
+    <title>Модальные окна</title>
+    <style>
+      @view-transition {
+      	navigation: auto;
+      }
+      
+    </style>
+    <style>
+      .project-view {
+      	--view-bg: var(--body-bg);
+      	--view-color: var(--body-color);
+      	--view-block-bg: var(--color-neutral-100);
+      	--view-border: var(--default-border);
+      	--view-link: var(--body-color);
+      	--view-link-hover: var(--color-primary-500);
+      	--view-title-color: var(--body-color);
+      	--view-check: var(--color-primary-300);
+      	position: relative;
+      	z-index: 0;
+      	display: flex;
+      	flex-direction: column;
+      	width: 100%;
+      	min-height: 100vh;
+      	padding: clamp(2.5rem, 1.2944984vw + 2.1966019rem, 3.75rem) 0;
+      	background-color: var(--view-bg);
+      	color: var(--view-color);
+      }
+      
+      .wrapper {
+      	display: flex;
+      	flex: 1 1 100%;
+      	flex-direction: column;
+      }
+      
+      .pv-title {
+      	display: flex;
+      	flex-wrap: wrap;
+      	align-items: center;
+      	gap: 1.25rem;
+      	margin-bottom: clamp(1.5rem, 2.3300971vw + 0.9538835rem, 3.75rem);
+      }
+      
+      .pv-title__text {
+      	margin: 0;
+      	color: var(--view-color);
+      	font-size: clamp(1.125rem, 0.9061489vw + 0.9126214rem, 2rem);
+      	font-weight: 600;
+      }
+      
+      .pv-logo {
+      	display: flex;
+      	align-items: center;
+      	justify-content: center;
+      }
+      
+      .pv-logo__image.img {
+      	--width: clamp(11.25rem, 5.8252427vw + 9.8847087rem, 16.875rem);
+      	--aspect-ratio: 270/70;
+      	--object-fit: contain;
+      }
+      
+      .pv-blocks {
+      	width: 100%;
+      }
+      
+      .pv-blocks--columns {
+      	column-count: auto;
+      	column-width: clamp(16rem, 45vw, 32rem);
+      	column-gap: 0.5rem;
+      }
+      
+      .pv-blocks--columns .pv-block {
+      	margin-bottom: 0.5rem;
+      	break-inside: avoid;
+      }
+      
+      .pv-block {
+      	display: flex;
+      	flex-direction: column;
+      	width: 100%;
+      	padding: clamp(1.25rem, 0.2588997vw + 1.1893204rem, 1.5rem);
+      	background-color: var(--view-block-bg);
+      }
+      
+      .pv-block__title {
+      	margin: 0 0 clamp(2.5rem, -1.0355987vw + 2.7427184rem, 1.5rem);
+      	color: var(--view-title-color);
+      	font-size: clamp(1.125rem, 0.9061489vw + 0.9126214rem, 2rem);
+      	font-weight: 600;
+      }
+      
+      .pv-block__preview {
+      	display: flex;
+      	flex-wrap: wrap;
+      	gap: 1rem;
+      	width: 100%;
+      }
+    </style>
+    <script type="module" crossorigin src="/wedding/scripts/vue.esm-bundler-chunk-D9D9G-Dr.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/preload-helper-chunk-CPlxUhXS.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/useI18n-chunk-DY_x5AKa.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/dist-chunk-BqXHCgkc.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/dist-chunk-DAXNW3np.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/pinia-chunk-Dwk1KN7_.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/vue-yandex-maps-chunk-COizN4n1.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/toast-chunk-zH3MoY8S.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/modals.store-chunk-7TjumS7A.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/main-chunk-t_MsM4fI.js"></script>
+    <link rel="stylesheet" crossorigin href="/wedding/styles/vue-yandex-maps-e2qR0_yV.css">
+    <link rel="stylesheet" crossorigin href="/wedding/styles/main-c8nkDWbD.css">
+  </head>
+  <body class="page">
+    <div id="app">
+      <suspense>
+        <root-component csrf-token="" :captcha="{ key: &quot;&quot;, type: &quot;yacaptcha&quot; }" :docs="[{ code: 'user-agreement', link: '/agreement/' }, { code: 'privacy-policy', link: '/policy/' }]">
+          <main class="page__main">
+            <section class="project-view">
+              <div class="wrapper">
+                <div class="pv-title">
+                  <h1 class="pv-title__text">Модальные окна</h1>
+                </div>
+                <div class="pv-blocks pv-blocks--columns">
+                  <div class="pv-block">
+                    <h3 class="pv-block__title">Общие</h3>
+                    <div class="pv-block__preview">
+                      <button class="btn" @click="openModal('modal-callback')">Заказать звонок</button>
+                      <button class="btn" @click="openModal('modal-menu-mobile')">Мобильное меню</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+        </root-component>
+      </suspense>
+      <div class="modals" id="modals-container">
+        <x-modal id="modal-menu-mobile" animation="fade-in-right">
+          <template #default="{close}">
+            <section class="mobile-menu">
+              <div class="mobile-menu__top">
+                <button class="mobile-menu__close" data-dialog-close aria-label="закрыть" @click="close">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-close"></use>
+                      </svg>
+                </button>
+                <div class="mobile-menu__title title title--h2">Меню</div>
+                <div class="mobile-menu__lang-toggle"><a class="mobile-menu__lang-toggle-link active" href="#">Ru</a><a class="mobile-menu__lang-toggle-link" href="#">En</a></div>
+              </div>
+              <div class="mobile-menu__content">
+                <nav class="mobile-menu__nav">
+                  <x-accordion class="mobile-menu__nav-item">
+                    <template #default="{onToggle, isOpen}">
+                      <button class="mobile-menu__nav-el" @click="onToggle"><span class="mobile-menu__nav-name">О комитете</span>
+                            <svg class="mobile-menu__nav-icon" aria-hidden="true">
+                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-chevron-down"></use>
+                            </svg>
+                      </button>
+                    </template>
+                    <template #body>
+                      <div class="mobile-menu__nav-body">
+                        <div class="mobile-menu__nav-list">
+                          <button class="mobile-menu__nav-link link" @click="openModal('modal-submenu-mobile')">О комитете</button>
+                          <button class="mobile-menu__nav-link link" @click="openModal('modal-submenu-mobile')">Пресс-центр</button>
+                        </div>
+                      </div>
+                    </template>
+                  </x-accordion>
+                  <x-accordion class="mobile-menu__nav-item">
+                    <template #default="{onToggle, isOpen}">
+                      <button class="mobile-menu__nav-el" @click="onToggle"><span class="mobile-menu__nav-name">Пресс-центр</span>
+                            <svg class="mobile-menu__nav-icon" aria-hidden="true">
+                              <use xlink:href="/wedding/img/icons.6f00ff8f.svg#icon-chevron-down"></use>
+                            </svg>
+                      </button>
+                    </template>
+                    <template #body>
+                      <div class="mobile-menu__nav-body">
+                        <div class="mobile-menu__nav-list">
+                          <button class="mobile-menu__nav-link link" @click="openModal('modal-submenu-mobile')">О комитете</button>
+                          <button class="mobile-menu__nav-link link" @click="openModal('modal-submenu-mobile')">Пресс-центр</button>
+                        </div>
+                      </div>
+                    </template>
+                  </x-accordion>
+                  <div class="mobile-menu__nav-item"><a class="mobile-menu__nav-el" href="#"><span class="mobile-menu__nav-name">Контакты</span></a></div>
+                </nav>
+              </div>
+              <div class="mobile-menu__bottom">
+                <div class="mobile-menu__contacts"><a class="mobile-menu__contacts-el link title title--h3" href="mailto:info@olympic.ru">info@xpage.ru</a></div>
+                    <div class="socials footer__socials">
+                      <div class="socials__list"><a class="socials__item" href="#" target="_blank">
+                              <picture class="img socials__item-icon"><img class="img__image" src="/wedding/img/content/socials/inst.svg" alt="alt" width="24" height="24" loading="lazy"></picture></a><a class="socials__item" href="#" target="_blank">
+                              <picture class="img socials__item-icon"><img class="img__image" src="/wedding/img/content/socials/vk.svg" alt="alt" width="24" height="24" loading="lazy"></picture></a>
+                      </div>
+                    </div>
+              </div>
+            </section>
+          </template>
+        </x-modal>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+var l={mobile:320,"mobile-xl":480,tablet:768,"tablet-xl":992,laptop:1024,"laptop-xl":1280,"laptop-xxl":1440,container:1315,pc:1600};export{l as t};

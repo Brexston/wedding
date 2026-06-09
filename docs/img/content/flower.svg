@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420" fill="none" aria-hidden="true">
+  <defs>
+    <radialGradient id="petal" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f4b8c8" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#e8a0b4" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#d88a9e" stop-opacity="0.15"/>
+    </radialGradient>
+    <radialGradient id="petal-soft" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f8d0dc" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#e8a0b4" stop-opacity="0.1"/>
+    </radialGradient>
+  </defs>
+  <path d="M138 418c-2-48 8-92 24-132" stroke="#2a2a2a" stroke-width="1.2" stroke-linecap="round"/>
+  <ellipse cx="138" cy="418" rx="8" ry="4" fill="#2a2a2a" opacity="0.35"/>
+  <ellipse cx="118" cy="250" rx="52" ry="44" fill="url(#petal)" transform="rotate(-28 118 250)"/>
+  <ellipse cx="168" cy="232" rx="58" ry="48" fill="url(#petal-soft)" transform="rotate(18 168 232)"/>
+  <ellipse cx="142" cy="198" rx="64" ry="54" fill="url(#petal)" transform="rotate(-8 142 198)"/>
+  <ellipse cx="188" cy="268" rx="46" ry="40" fill="url(#petal-soft)" transform="rotate(42 188 268)"/>
+  <ellipse cx="108" cy="292" rx="42" ry="36" fill="url(#petal)" transform="rotate(-36 108 292)"/>
+  <circle cx="150" cy="248" r="18" fill="#f0b0c0" opacity="0.55"/>
+</svg>

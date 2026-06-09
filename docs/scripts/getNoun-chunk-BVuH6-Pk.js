@@ -1,0 +1,1 @@
+function n(n,a){const t=Math.abs(n)%100,s=t%10;return t>=11&&t<=19?a.many:1===s?a.single:s>=2&&s<=4?a.dual:a.many}export{n as t};
