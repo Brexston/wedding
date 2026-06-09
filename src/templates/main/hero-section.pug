@@ -1,31 +1,21 @@
 section.page__section.section.hero-section
-	slider-hero.hero-section__slider
-		-for(let i = 0; i < 5; i ++)
-			.swiper-slide
-				article.hero-section__slide
-					.hero-section__bg
-						+image(
-							{
-								src: 'img/content/banner.jpg',
-								width: '1140',
-								height: '641',
-								alt: 'banner',
-								lazy: false
-							}
-						).hero-section__bg-image
+	.hero-section__bg
 
-					.hero-section__wrapper.wrapper
-						.hero-section__title.title.title--h1 Заголовок <br> баннера
-						.hero-section__text Возможно краткое <br> описание, утп
-						a(href="#").hero-section__btn.btn.btn--color-secondary Подробнее
+	.hero-section__content.wrapper
+		p.hero-section__label Приглашение на свадьбу
 
-		template(#thumbs)
-			-for(let i = 0; i < 5; i ++)
-				.swiper-slide
-					+image(
-						{
-							src: 'img/content/banner.jpg',
-							width: '1140',
-							height: '641',
-						}
-					).hero-section__thumb
+		.hero-section__names
+			h1.hero-section__name Полина
+			span.hero-section__amp &
+			h1.hero-section__name Юрий
+
+	.hero-section__flower
+		+image(
+			{
+				src: 'img/content/flower.svg',
+				width: '280',
+				height: '420',
+				alt: '',
+				lazy: false
+			}
+		).hero-section__flower-image

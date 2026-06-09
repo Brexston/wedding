@@ -1,0 +1,81 @@
+.program-section
+	min-height: 100svh
+	padding: fluid(56, 40) 0 fluid(64, 48)
+	background-color: var(--wedding-bg)
+	background-image: radial-gradient(ellipse at 100% 40%, rgba(232, 160, 176, 0.28) 0%, transparent 55%)
+
+	&__inner
+		display: flex
+		flex-direction: column
+		align-items: center
+
+	&__title
+		margin: 0 0 fluid(48, 36)
+		color: var(--wedding-accent)
+		font-family: var(--font-family-accent)
+		font-size: fluid(56, 44)
+		font-weight: 400
+		line-height: 1.05
+		text-align: center
+
+	&__timeline
+		position: relative
+
+		display: flex
+		flex-direction: column
+		gap: fluid(44, 32)
+
+		width: 100%
+		margin: 0
+		padding: 0
+
+		list-style: none
+
+		&::before
+			content: ''
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 50%
+
+			width: 1px
+
+			background-color: var(--color-neutral-900)
+			opacity: 0.35
+
+			transform: translateX(-50%)
+
+	&__item
+		width: calc(50% - #{fluid(14, 10)})
+
+		&--left
+			align-self: flex-start
+			padding-right: fluid(16, 12)
+			text-align: right
+
+		&--right
+			align-self: flex-end
+			padding-left: fluid(16, 12)
+			text-align: left
+
+	&__event
+		display: flex
+		flex-direction: column
+		gap: fluid(6, 4)
+
+	&__time
+		margin: 0
+		color: var(--color-neutral-900)
+		font-family: var(--font-family-secondary)
+		font-size: fluid(18, 16)
+		font-weight: 500
+		line-height: 1.2
+
+	&__label
+		margin: 0
+		opacity: 0.75
+		color: var(--color-neutral-900)
+		font-family: var(--font-family-secondary)
+		font-size: fluid(14, 12)
+		font-weight: 400
+		line-height: 1.35

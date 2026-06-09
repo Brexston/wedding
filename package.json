@@ -22,6 +22,8 @@
 	},
 	"dependencies": {
 		"@aejkatappaja/phantom-ui": "0.10.1",
+		"@fontsource/bad-script": "5.2.8",
+		"@fontsource/montserrat": "5.2.8",
 		"@popperjs/core": "2.11.8",
 		"@vueform/multiselect": "2.6.11",
 		"@vueform/slider": "2.1.10",

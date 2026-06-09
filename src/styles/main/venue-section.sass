@@ -1,0 +1,111 @@
+.venue-section
+	min-height: 100svh
+	padding: fluid(56, 40) 0 fluid(72, 56)
+	background-color: var(--wedding-bg)
+	background-image: radial-gradient(ellipse at 0% 30%, rgba(232, 160, 176, 0.22) 0%, transparent 50%)
+
+	&__inner
+		display: flex
+		flex-direction: column
+		align-items: center
+		gap: fluid(28, 20)
+		text-align: center
+
+	&__title
+		margin: 0
+		color: var(--wedding-accent)
+		font-family: var(--font-family-accent)
+		font-size: fluid(56, 44)
+		font-weight: 400
+		line-height: 1.05
+
+	&__lead
+		max-width: 24em
+		margin: 0
+
+		opacity: 0.8
+
+		color: var(--color-neutral-900)
+		font-family: var(--font-family-secondary)
+		font-size: fluid(14, 12)
+		font-weight: 400
+		line-height: 1.6
+
+		text-wrap: balance
+
+	&__card
+		display: flex
+		flex-direction: column
+		align-items: center
+		gap: fluid(14, 10)
+
+		width: 100%
+		padding: fluid(28, 20)
+
+		border: 1px solid rgba(111, 56, 69, 0.14)
+		background-color: rgba(255, 255, 255, 0.42)
+
+	&__venue
+		margin: 0
+
+		color: var(--color-neutral-900)
+		font-family: var(--font-family-secondary)
+		font-size: fluid(15, 13)
+		font-weight: 500
+		letter-spacing: 0.1em
+		line-height: 1.35
+
+		text-transform: uppercase
+
+	&__address
+		display: flex
+		flex-direction: column
+		gap: fluid(6, 4)
+		font-style: normal
+
+		p
+			margin: 0
+			color: var(--color-neutral-500)
+			font-family: var(--font-family-secondary)
+			font-size: fluid(13, 11)
+			font-weight: 400
+			line-height: 1.45
+
+	&__map
+		width: 100%
+		height: fluid(240, 200)
+
+	&__map-widget
+		display: block
+		width: 100%
+		height: 100%
+		overflow: hidden
+		border: 1px solid rgba(111, 56, 69, 0.1)
+		border-radius: fluid(16, 12)
+		background-color: #e8e4df
+
+	&__route
+		display: inline-flex
+		align-items: center
+		justify-content: center
+
+		min-height: 44px
+		padding: fluid(14, 12) fluid(32, 24)
+
+		border: 1px solid var(--wedding-accent)
+
+		color: var(--wedding-accent)
+		font-family: var(--font-family-secondary)
+		font-size: fluid(11, 10)
+		font-weight: 500
+		letter-spacing: 0.16em
+		line-height: 1
+
+		text-decoration: none
+		text-transform: uppercase
+
+		transition: color 0.3s ease, background-color 0.3s ease
+
+		@include hover
+			background-color: var(--wedding-accent)
+			color: var(--color-neutral-100)

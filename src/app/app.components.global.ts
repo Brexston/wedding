@@ -66,6 +66,7 @@ const components = [
 	// #region OTHER
 	{ name: 'UiPreview', component: defineAsyncComponent(() => import('@app/shared/components/UiPreview.vue')) },
 	{ name: 'ContactsMap', component: defineAsyncComponent(() => import('@app/shared/components/maps/ContactsMap.vue')) },
+	{ name: 'WeddingCountdown', component: defineAsyncComponent(() => import('@app/shared/components/wedding/WeddingCountdown.vue')) },
 	// #endregion
 
 	// #region USER

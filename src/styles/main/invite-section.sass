@@ -1,0 +1,81 @@
+.invite-section
+	position: relative
+	z-index: var(--z-index-base)
+
+	min-height: 100svh
+	margin-top: fluid(-56, -40)
+	margin-bottom: var(--g-4xl)
+	padding-top: fluid(72, 56)
+	padding-bottom: fluid(48, 36)
+
+	background-color: var(--wedding-bg)
+	background-image: radial-gradient(ellipse at 0% 100%, rgba(232, 160, 176, 0.35) 0%, transparent 55%)
+
+	&__inner
+		display: flex
+		flex-direction: column
+		align-items: center
+		gap: fluid(28, 20)
+		text-align: center
+
+	&__title
+		margin: 0
+		color: var(--wedding-accent)
+		font-family: var(--font-family-accent)
+		font-size: fluid(60, 46)
+		font-weight: 400
+		line-height: 1.05
+
+	&__text
+		display: flex
+		flex-direction: column
+		gap: fluid(16, 12)
+		max-width: 28em
+		text-wrap: balance
+
+		p
+			margin: 0
+			color: var(--color-neutral-900)
+			font-family: var(--font-family-secondary)
+			font-size: fluid(15, 13)
+			font-weight: 400
+			line-height: 1.55
+
+	&__details
+		display: flex
+		flex-direction: column
+		align-items: center
+		gap: fluid(20, 16)
+		width: 100%
+
+	&__date
+		margin: fluid(8, 4) 0 0
+		color: var(--wedding-accent)
+		font-family: var(--font-family-accent)
+		font-size: fluid(44, 34)
+		font-weight: 400
+		line-height: 1.15
+
+	&__location
+		display: flex
+		flex-direction: column
+		gap: fluid(6, 4)
+
+		p
+			margin: 0
+
+	&__venue
+		color: var(--color-neutral-900)
+		font-family: var(--font-family-secondary)
+		font-size: fluid(14, 12)
+		font-weight: 500
+		letter-spacing: 0.06em
+		line-height: 1.4
+		text-transform: uppercase
+
+	&__address
+		color: var(--color-neutral-500)
+		font-family: var(--font-family-secondary)
+		font-size: fluid(13, 11)
+		font-weight: 400
+		line-height: 1.45

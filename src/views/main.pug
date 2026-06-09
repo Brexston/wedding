@@ -1,39 +1,29 @@
 extends /base/_head
+
 block vars
-	- let title = 'Главная'
-	- let layoutClass = 'layout'
-	- let bodyClass = null
+
+	- let title = 'Полина и Юрий'
+
+	- let layoutClass = 'layout layout--wedding'
+
+	- let bodyClass = 'page-wedding'
+
+
 
 block content
-	+header()
 
 	main.page__main
+
 		include ../templates/main/hero-section
 
-		section.page__section.section.section-slider(id="default-slider")
-			.wrapper
-				.section__inner
-					.section__header
-						h2.section__title.title.title--h2 Заголовок секции
+		include ../templates/main/invite-section
 
-						.section__btns
-							a(href="#").btn
-								span.btn__text какая-то кнопка
+		include ../templates/main/program-section
 
-						.section__controls.swiper-buttons
-							button.swiper-button.swiper-button-prev
-							button.swiper-button.swiper-button-next
+		include ../templates/main/venue-section
 
-					.section__content
-						x-slider(id="default-slider" :breakpoints="{ 1: { slidesPerView: 2, spaceBetween: 10 }, 481: { slidesPerView: 3, spaceBetween: 10 }, 1280: { slidesPerView: 5, spaceBetween: 20 } }" :space-between="20").section-slider__slider
-							-for (let i = 0; i < 9; i++)
-								.swiper-slide(style="background-color: var(--color-primary-300)")
-									+image(
-										{
-											src: 'img/content/photo.jpg',
-											width: '270',
-											height: '152',
-										}
-									)
+		include ../templates/main/dress-code-section
 
-	include ../templates/shared/footer
+		include ../templates/main/countdown-section
+
+
