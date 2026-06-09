@@ -85,7 +85,7 @@ export default defineConfig(({ mode }) => {
 				input: IS_BUILD
 					? resolve(SOURCE_DIR, 'app/main.ts')
 					: {
-							index: resolve(SOURCE_DIR, 'index.html'),
+							index: resolve(SOURCE_DIR, 'index.pug'),
 							...PAGES,
 						},
 
