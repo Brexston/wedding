@@ -1,5 +1,6 @@
 .countdown-section
-	padding: fluid(56, 40) 0 fluid(64, 48)
+	position: relative
+	padding: fluid(30, 16) 0 0
 
 	&__inner
 		display: flex
@@ -83,3 +84,9 @@
 		line-height: 1
 
 		text-transform: uppercase
+
+	&__sticker
+		&-img
+			--width: 250px
+			--aspect-ratio: 1 / 1
+			--object-fit: contain

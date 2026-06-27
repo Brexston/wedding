@@ -19,7 +19,7 @@ class AnimationController {
 
 	protected observerParams: IntersectionObserverInit = {
 		rootMargin: '0px',
-		threshold: 0.35,
+		threshold: 0.15,
 	};
 
 	protected baseDelay = 0.25;

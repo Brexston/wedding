@@ -5,3 +5,11 @@ section.page__section.section.countdown-section
 				span.countdown-section__title-accent(aria-hidden="true") Увидимся через...
 
 		wedding-countdown.countdown-section__countdown(v-animate="{animationClass: 'fadeInUp'}")
+		.countdown-section__sticker(v-animate="{animationClass: 'fadeInUp'}")
+			+image(
+				{
+					src: 'img/content/sticker.webp',
+					width: '190',
+					height: '190'
+				}
+			).countdown-section__sticker-img

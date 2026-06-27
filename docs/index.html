@@ -36,9 +36,9 @@
     <script type="module" crossorigin src="/wedding/scripts/vue-yandex-maps-chunk-COizN4n1.js"></script>
     <script type="module" crossorigin src="/wedding/scripts/toast-chunk-zH3MoY8S.js"></script>
     <script type="module" crossorigin src="/wedding/scripts/modals.store-chunk-7TjumS7A.js"></script>
-    <script type="module" crossorigin src="/wedding/scripts/main-chunk-BzDRFAGh.js"></script>
+    <script type="module" crossorigin src="/wedding/scripts/main-chunk-CuFOggi6.js"></script>
     <link rel="stylesheet" crossorigin href="/wedding/styles/vue-yandex-maps-e2qR0_yV.css">
-    <link rel="stylesheet" crossorigin href="/wedding/styles/main-DwTEv3e8.css">
+    <link rel="stylesheet" crossorigin href="/wedding/styles/main-DmpkiLg3.css">
   </head>
   <body class="page page-wedding">
     <div class="layout layout--wedding" id="app">
@@ -56,7 +56,7 @@
                 <h2 class="invite-section__title" v-animate="{animationClass: 'fadeInUp'}">Дорогие гости!</h2>
                 <div class="invite-section__text" v-animate="{animationClass: 'fadeInUp'}">
                   <p>Спешим поделиться большой радостью – мы женимся!</p>
-                  <p>Без вас наша свадьба не будет такой же душевной и памятной. Приглашаем вас отметить этот день вместе с нами!</p>
+                  <p>Без вас наша свадьба не будет такой же душевной и памятной. Приглашаем отметить этот день вместе с нами!</p>
                 </div>
                 <div class="invite-section__details" v-animate="{animationClass: 'fadeInUp'}">
                   <p class="invite-section__date">12 сентября 2026</p>
@@ -69,19 +69,19 @@
                 <ul class="program-section__timeline">
                   <li class="program-section__item program-section__item--left" v-animate="{animationClass: 'fadeInUp'}">
                     <div class="program-section__event">
-                      <p class="program-section__time">15:00</p>
+                      <p class="program-section__time">16:00</p>
                       <p class="program-section__label">Сбор гостей</p>
                     </div>
                   </li>
                   <li class="program-section__item program-section__item--right" v-animate="{animationClass: 'fadeInUp'}">
                     <div class="program-section__event">
-                      <p class="program-section__time">16:00</p>
+                      <p class="program-section__time">16:30</p>
                       <p class="program-section__label">Церемония регистрации</p>
                     </div>
                   </li>
                   <li class="program-section__item program-section__item--left" v-animate="{animationClass: 'fadeInUp'}">
                     <div class="program-section__event">
-                      <p class="program-section__time">17:00</p>
+                      <p class="program-section__time">17:30</p>
                       <p class="program-section__label">Праздничный банкет</p>
                     </div>
                   </li>
@@ -112,7 +112,20 @@
               <div class="dress-code-section__inner wrapper">
                 <h2 class="dress-code-section__title" v-animate="{animationClass: 'fadeInUp'}">Дресс-код</h2>
                 <div class="dress-code-section__text" v-animate="{animationClass: 'fadeInUp'}">
-                  <p>Мы не ограничиваем гостей определённой цветовой гаммой, но будем особенно рады образам в нежных пастельных оттенках. Главное — ваше хорошее настроение и комфорт!</p>
+                  <p>Мы не ограничиваем гостей определённой цветовой гаммой, но будем особенно рады образам в нежных пастельных оттенках. Главное — ваш комфорт!</p>
+                </div>
+              </div>
+            </section>
+            <section class="page__section section wishes-section">
+              <div class="wishes-section__inner wrapper">
+                <h2 class="wishes-section__title" v-animate="{animationClass: 'fadeInUp'}">Пожелания</h2>
+                <div class="wishes-section__text">
+                  <div class="wishes-section__item" v-animate="{animationClass: 'fadeInUp'}">
+                    <p>Для нас самое главное — ваше присутствие и хорошее настроение. Если вы планируете подарок, самым желанным для нас будет вклад в наш семейный бюджет.</p>
+                  </div>
+                  <div class="wishes-section__item" v-animate="{animationClass: 'fadeInUp'}">
+                    <p>Мы знаем, что на свадьбах принято дарить цветы, но, к сожалению, у нас не будет возможности заботиться о букетах после свадьбы. Если захотите сделать приятный комплимент — будем рады любой альтернативе, выбранной вами с душой.</p>
+                  </div>
                 </div>
               </div>
             </section>
@@ -120,6 +133,9 @@
               <div class="countdown-section__inner wrapper">
                 <h2 class="countdown-section__title" v-animate="{animationClass: 'fadeInUp'}"><span class="countdown-section__title-line"><span class="countdown-section__title-accent" aria-hidden="true">Увидимся через...</span></span></h2>
                 <wedding-countdown class="countdown-section__countdown" v-animate="{animationClass: 'fadeInUp'}"></wedding-countdown>
+                <div class="countdown-section__sticker" v-animate="{animationClass: 'fadeInUp'}">
+                      <picture class="img countdown-section__sticker-img"><img class="img__image" src="/wedding/img/content/sticker.webp" alt="alt" width="190" height="190" loading="lazy"></picture>
+                </div>
               </div>
             </section>
           </main>
