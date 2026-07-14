@@ -64,6 +64,49 @@
 		font-weight: 400
 		line-height: 1
 
+	&__scroll
+		position: absolute
+		bottom: fluid(28, 20)
+		left: 50%
+		z-index: var(--z-index-above)
+
+		display: flex
+		flex-direction: column
+		align-items: center
+		gap: fluid(10, 8)
+
+		transform: translateX(-50%)
+
+		pointer-events: none
+
+	&__scroll-track
+		position: relative
+		width: 1px
+		height: fluid(36, 30)
+		background-color: rgba(111, 56, 69, 0.22)
+
+	&__scroll-thumb
+		position: absolute
+		top: 0
+		left: 50%
+
+		width: fluid(5, 4)
+		height: fluid(5, 4)
+
+		border-radius: 50%
+		background-color: var(--wedding-accent)
+
+		transform: translateX(-50%)
+		animation: hero-scroll-hint 1.8s ease-in-out infinite
+
+	&__scroll-text
+		opacity: 0.9
+		color: var(--wedding-accent)
+		font-family: var(--font-family-accent)
+		font-size: fluid(32, 26)
+		font-weight: 400
+		line-height: 1
+
 	&__flower
 		position: absolute
 		right: fluid(-12, -24)
@@ -76,3 +119,15 @@
 		--width: 100%
 		--aspect-ratio: 280/420
 		--object-fit: contain
+
+@keyframes hero-scroll-hint
+	0%,
+	100%
+		top: 0
+		opacity: 0.45
+		transform: translateX(-50%) translateY(0)
+
+	50%
+		top: 100%
+		opacity: 1
+		transform: translateX(-50%) translateY(-100%)
